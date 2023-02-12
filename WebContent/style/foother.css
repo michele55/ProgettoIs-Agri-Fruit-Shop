@@ -1,0 +1,139 @@
+@charset "ISO-8859-1";
+
+.block-contact{width:99%; margin:0 0 0 0.5%; padding:0;height:350px; border:none; background:silver;}
+
+.paddingMobile{
+	margin:1% 0 0 0;
+	float: left;
+	width:20%;
+	height:90%;
+	font-size: 20px;
+	padding:0;
+	font-family: "Times New Roman", Times, serif;
+	color: teal;
+	text-decoration: none;
+
+}
+.paddingMobile p{padding: 1% 0 0 1%;}
+
+.paddingMobile li{
+	width:100%;
+	display:inline-block;
+	padding:0;
+	margin:0;
+}
+
+
+
+
+.paddingMobile Span{
+	display:inline-block;
+	
+	font-size: 18px;
+	padding:-5% 0 0 0;
+	margin:0;
+	font-family: "Times New Roman", Times, serif;
+	color: black;
+	text-decoration: none;
+}
+
+.pagamento{
+	display:inline;
+	float:left;
+	width:20%;
+	font-size: 20px;
+	padding-left:1%;
+	margin-left: 5%;
+	font-family: "Times New Roman", Times, serif;
+	color: teal;
+	text-decoration: none;
+}
+
+
+
+.spedizione{
+
+	float:left;
+	width:20%;
+	font-size: 20px;
+	margin-left: 5%;
+	font-family: "Times New Roman", Times, serif;
+	color: teal;
+	text-decoration: none;
+}
+
+.domande{
+	float: left;
+	width:20%;
+	font-size: 20px;
+	padding-left:5%;
+	font-family: "Times New Roman", Times, serif;
+	color: teal;
+	text-decoration: none;
+}
+
+.domande li{
+	width:250px;
+	display:inline-block;
+	margin-top:5px;
+	margin-left:1px;
+}
+
+ .domande a{text-decoration:none; color:black;font-family: "Times New Roman", Times, serif;font-size:25px; }
+ .domande a:hover{color:orange;}
+.altro{
+	float:right;
+	width:20%;
+	font-size: 20px;
+	padding-right:1%;
+	font-family: "Times New Roman", Times, serif;
+	color: teal;
+	text-decoration: none;
+}
+
+
+
+@media(max-width:767px){
+
+	.paddingMobile{
+	
+	margin:5% 0 0 0;
+	width:10%;
+	height:50%;
+	font-size: 12px;
+	padding:0;
+
+}
+.paddingMobile Span{
+	float:left;
+	font-size: 12px;
+	margin-left:-5%;
+	
+}
+
+.domande{
+	float: left;
+	width:10%;
+	font-size: 12px;
+	padding-left:50%;
+	
+}
+ .domande a{font-size:16px; }
+
+  .pagamento{
+		display:none;
+	}
+	.spedizione{
+		display:none;
+	}
+	
+	.altro{
+	display:none;
+
+	
+}
+	
+}
+
+
+

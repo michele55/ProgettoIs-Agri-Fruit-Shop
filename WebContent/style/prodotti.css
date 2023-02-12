@@ -1,0 +1,215 @@
+@charset "ISO-8859-1";
+
+.banner{display:none;}
+#risultato{
+
+	
+	width :50%;	
+
+	height:1280px;
+	margin-left:20%;
+	margin-right:10%;
+
+}
+
+#singolo{
+	display:inline;
+	float:left;
+	width:180px;
+	height:190px;
+	border-radius:5px;
+	padding: 0;
+	margin: 1% 2% 0 1%;
+	
+}
+
+
+
+#singolo:hover {}
+#singolo a{text-decoration:none;}
+#immagineprod {display:inline;float:left;width:80%;height:40%;margin-left:10%;}
+#immagineprod img{width:100%;height:100%; }
+#descrizione{display:inline;float:left; width:90%;height:20%;margin-left:5%;}
+#descrizione p{font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:17px; text-decoration:none; margin :0; padding:0 0 0 0;}
+#prezzo{display:inline;float:left;width:90%; height:15%;margin-left:5%;font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:25px; text-decoration:none;  }
+#prezzo p{width:50%;display:inline; float:left; margin:0 0 0 0 ;  font-weight: bold; font-size:25px; text-align:center;}
+#prezzo img{width:25%;display:inline; float:left; margin-top:0%; margin-left:0;}
+#scelta{display:inline;float:left;width:95%; height:15%; margin-left:5%; padding-top:1%; }
+#scelta input{width:20%;  height:30px; border-style:solid; border-radius:10px; margin: 0 0 0 5% ; outline: none;background:lightgrey;}
+#scelta button{width:65%; height:35px;margin-left:10%; border-radius:10px; background:#69CD12;}
+#scelta button:hover{background:orange;}
+
+
+
+#singolohomepage{
+	display:inline;
+	float:left;
+	width:20%;
+	height:100%;
+	border-radius:5px;
+	padding: 0;
+	margin: 1% 2% 3% 1%;
+	
+}
+
+
+#singolohomepage:hover {}
+
+ #immagineprodhome {display:inline;float:left;width:80%;height:40%;margin-left:10%;}
+ #immagineprodhome img{width:80%;height:100%; margin-left:10%;}
+ #descrizionehome{display:inline;float:left; width:90%;height:20%;margin-left:5%; margin-top:0;}
+ #descrizionehome a{font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:18px; text-decoration:none; margin :0; padding:0 0 0 10px;}
+ #prezzohome{display:inline;float:left;width:90%; height:15%;margin:0 0 0 5%;font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:25px; text-decoration:none; }
+ #prezzohome p{width:50%;display:inline; float:left; margin:0;padding:0;  font-weight: bold; font-size:25px; text-align:center;}
+ #prezzohome img{width:35%;display:inline; float:left; margin-top:-5%; margin-left:0; text-decoration:none;}
+ #sceltahome{display:inline;float:left;width:90%; height:15%; margin-left:5%; padding-top:1%;}
+ #sceltahome input{width:20%; height:30px; border-style:solid; border-radius:5px;margin-left:5%;outline: none; background:lightgrey;}
+ #sceltahome button{width:60%;height:35px;margin-left:5%; padding:0;border-radius:5px; background:#69CD12;}
+ #sceltahome button:hover{background:orange;}
+ #sceltahome a{width:80%;height:55px;margin-left:5%; padding:0;border-radius:5px; background:#69CD12;}
+ #sceltahome a:hover{background:orange;}
+
+
+
+
+#parametriconfigurazione{
+	
+	float:left;
+	width: 15%;
+	height:1080px;
+	margin-left:70px;
+	color:black;
+	background-color:white;
+
+}
+
+#parametriconfigurazione a{
+	 
+	margin-top:5px;
+	margin-left:20px;
+	font-size:20px;
+	
+	display:inline;
+	float:left;
+	width:70%;
+
+	color:black;
+	text-decoration:none;
+}
+
+#parametriconfigurazione a:hover{background:green;}
+#parametriconfigurazione a p{
+	font-family: American Typewriter, serif	;
+
+	display:inline;
+	float:left;
+	width:60%;
+	margin-top:25px;
+	
+	}
+
+
+#parametriconfigurazione img{
+	display:inline;
+	float:left;
+	width:40%;
+	height:60px;
+}
+
+
+
+
+@media(max-width:767px){
+		
+	
+	#parametriconfigurazione{
+	
+	float:left;
+	
+	margin-left:4px;
+	width: 30%;
+	height:400px;
+	margin-top:90px;
+	
+
+}
+
+#parametriconfigurazione a p{
+	 
+	margin-top:5px;
+	margin-left:1px;
+	font-size:20px;
+	width:30%;
+	
+	
+}
+
+
+#parametriconfigurazione img{
+	display:none;
+}
+#singolo{
+	display:inline;
+	float:left;
+	width:120px;
+	height:90px;
+	margin: 10% 10% 5% 0%;
+}
+#risultato{
+	padding-top:50px;
+	
+	width :80%;	
+
+	height:80%;
+	
+	margin-left:0;
+	margin-right:0;
+
+}
+#risultato singolo{
+	display:inline;
+	float:left;
+	width:35%;
+	height:20%;
+	margin: 10% 10% 10% 0%;
+}
+#descrizione{ width:70%;height:30%;margin-bottom:30%;}
+#descrizione p{font-size:18px;margin-bottom:20px;}
+
+#immagineprod {display:inline;float:left;width:80%;height:60%;margin-left:10%;}
+#prezzo{width:50%; height:10%;font-size:15px; margin-left:5px;}
+#prezzo p{width:50%; margin:10% 1% 10% 0 ;font-size:15px;padding-bottom:2px;}
+#prezzo img{width:70%; margin-left:50%;}
+#scelta{display:none;}
+#scelta button{width:52%; height:35px;margin-left:20%; border-radius:10px; background:#69CD12;}
+#scelta button:hover{background:orange;}
+
+
+#singolohomepage:hover {display:block;}
+ #immagineprodhome {display:inline;float:left;width:80%;height:40%;margin-left:10%;}
+ #immagineprodhome img{width:100%;height:70%; margin-left:15%;}
+ #descrizionehome{display:inline;float:left; width:90%;height:20%;margin-left:1%; margin-top:0;}
+ #descrizionehome a{font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:12px; text-decoration:none; margin :0; padding:0 0 0 5px;}
+ #prezzohome{display:inline;float:left;width:90%; height:15%;margin:0 0 0 5%;font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:25px; text-decoration:none; }
+ #prezzohome p{width:50%;display:inline; float:left; margin:0;padding:0;  font-weight: bold; font-size:15px; text-align:center;}
+ #prezzohome img{width:35%;display:inline; float:left; margin-top:-5%; margin-left:0; text-decoration:none;}
+ #sceltahome{display:inline;float:left;width:80%; height:15%; margin-left:5%; padding-top:1%;}
+ #sceltahome input{display:none;}
+ #sceltahome button{display:none;}
+ 
+.banner{width:300px; height:80px; position:fixed; bottom:0; background:grey; display:block; margin:0; z-index:111111;}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+}

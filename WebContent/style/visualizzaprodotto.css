@@ -1,0 +1,254 @@
+@charset "ISO-8859-1";
+
+#contenitore{
+	width:80%;
+	height:600px;
+	margin: 0 10% 2% 10%;
+	font-family: "Times New Roman", Times, serif;
+	font-size:25px;
+	border:none;
+}
+
+#visualizzaprodotto{
+	  background-color: lightgrey;
+	width:70%;
+	height:80%;
+	margin: 10px 10% 10px 28%;
+	border-style:none;
+	padding:0;
+}
+
+#foto img {
+display:inline;
+max-width: 280px;
+-moz-transition: all 0.3s;
+-webkit-transition: all 0.3s;
+transition: all 0.3s;
+
+}
+
+#foto:hover img {
+-moz-transform: scale(1.1);
+-webkit-transform: scale(1.1);
+transform: scale(1.1);
+}
+
+#foto{
+	float:left;
+	display:inline;
+	width:200px;
+	margin-left:20px;
+	margin-top:30px;
+}
+
+#nome{
+	float:left;
+	display:inline;
+	width:90%;
+	margin-left:5%;
+	border:none;
+}
+#nome p{width:35%; display:inline;float:left; }
+#nome span{width:60%; display:inline;float:left; margin-top:3%;}
+#descrizione{
+	display:inline;
+	float:left;
+	width:100%;
+	height:120px;
+	border-style:none;
+}
+#descrizione p{margin-left:5%;width:30%; display:inline;float:left; border:none;}
+
+#desc{width:60%; height:90%; display:inline;float:left;border:none;}
+
+#quantita{float:left;
+	display:inline;
+	width:90%;
+	margin-left:5%;
+	}
+#quantita p{width:30%; height:50px;display:inline;float:left; padding:2% 0 0 0; border:none;}
+
+#qnt{display:inline;float:left;width:60%;height:50px; width:50%; border-style:none; margin-top:4%;}
+
+
+#prezzo{
+	display:inline;
+	float:left;
+	width:90%;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+#categoria{
+	display:inline;
+	float:left;
+	width:90%;
+	margin-left:20px;
+	margin-top:20px;
+
+}
+
+#form input{border-style:none; ;background:lightgrey;outline: none; font-size:20px; }
+
+#addcarrello input {
+	float:right;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#login input {
+	float:right;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#qnt input{padding:0; width:20%; height:90%; border:3px solid orange;}
+
+
+
+
+
+@media(max-width:767px){
+	
+	#contenitore{
+	width:100%;
+	min-height:600px;
+	height:auto;
+	margin: auto;
+	font-family: "Times New Roman", Times, serif;
+	font-size:25px;
+	border-style:inset;
+}
+	
+	#visualizzaprodotto{
+	  background-color: lightgrey;
+	width:100%;
+	height:75%;
+	margin: 0px 2px 6px 0px;
+	float:left;
+	border:none;
+	padding:0;
+}
+
+#nome p{width:25%; display:inline;float:left; border:none;margin-left:-10px;}
+#nome span{width:25%; display:inline; margin-left:15px;margin-top:6%; border:none;;}
+	
+	#foto img {
+	
+display:inline;
+margin-left:25%;
+margin-right:auto;
+padding-top:30%;
+
+max-width: 240px;
+-moz-transition: all 0.3s;
+-webkit-transition: all 0.3s;
+transition: all 0.3s;
+
+}
+
+#descrizione{
+	display:inline;
+	float:left;
+	width:100%;
+	height:120px;
+	margin-left:-14px;
+	border:none;
+}
+#descrizione p{margin-left:4%;width:30%; display:inline;float:left; border:none;}
+
+#desc{width:60%; height:75%; display:inline;float:right;border:none;margin-top:5%;}
+
+#quantita{float:left;
+	display:inline;
+
+	width:80%;
+	margin-left:5%;
+	margin-top:2px;
+	margin-left:-2px;
+	margin-bottom:0px;
+	border:none;
+	}
+#quantita p{width:30%; height:35px;display:inline;float:left; padding:5px 5px 0px 0; border:none;}
+
+#qnt{display:inline;float:right;width:60%;height:50px; width:50%; border-style:none; margin-top:4%;}
+
+
+#prezzo{
+	display:inline;
+	float:left;
+	width:90%;
+	margin-left:2px;
+	margin-top:2px;
+}
+
+#categoria{
+	display:inline;
+	float:left;
+	width:90%;
+	margin-left:2px;
+	margin-top:2px;
+
+}
+
+
+#nome{
+	float:left;
+	display:inline;
+	width:90%;
+	margin-left:5%;
+}
+
+#form input{border-style:none; ;background:lightgrey;outline: none; font-size:20px; }
+
+#addcarrello input {
+	float:right;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#login input {
+	float:right;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+#qnt input{padding:0; width:20%; height:90%; border:3px solid orange;}
+
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+	
+}
+	
+	
+
+
+

@@ -1,0 +1,117 @@
+@charset "ISO-8859-1";
+
+#mostra__carrello{width:80%; margin-left:10%; height:700px;}
+#conferma__carrello{display:inline;float:right;width:20%;font-family: American Typewriter, serif;font-size:25px; position:fixed; height:60%; margin:0 0 0 5%; border: none;}
+#conferma__carrello button{width:200px; height:50px; background:orange;color:black; border-radius:20px;font-family: "Lucida Console", "Courier New", monospace;font-size:18px;}
+#conferma__carrello button:hover{background:green;}
+#tot{font-family: "Lucida Console", "Courier New", monospace;font-size:20px;margin:0 0 0 15%;}
+
+.prodotti__carrello{display:inline;float:left;width:60%; height:30%; margin:0 0% 0 10%; border-bottom:2px solid orange;font-family: "Lucida Console", "Courier New", monospace;font-size:18px; }
+.prodotti__carrello span img{display:inline;float:left;width:20%;margin:5% 0 0 0;}
+.prodotti__carrello #nomeprod input{display:inline;float:left;width:40%;height:20%; margin:5% 0 0 2%; border:none; background:#F8F8FF; outline: none;}
+.prodotti__carrello #quantita input{display:inline;float:left;width:8%; height:17%;margin:5% 0 0 0; border-radius:5px; border:2px solid green; background:#F8F8FF; }
+
+.prodotti__carrello #prezzo{display:inline;float:right;width:20%; margin:15% 2% 0 0; font-size:25px;}
+#totale{width:10%; height:10%;}
+
+
+
+
+
+.errore__quantita{width:100px; height:10px; border-style:solid; }
+
+
+.carrello__vuoto{width:60%; margin-left:20%;height:80%; }
+.carrello__vuoto img{margin:50px 0 0 50px}
+.carrello__vuoto button{width:200px; height:50px; background:green;color:black; border-radius:20px;font-family: "Lucida Console", "Courier New", monospace;font-size:18px;}
+.carrello__vuoto button:hover{background:orange;}
+
+.riepilogo__prodotti__carrello {display:inline-block;width:60%;height:5%; margin:1% 0 0 2%; border:none; background:#F8F8FF; outline: none;}
+.riepilogo__prodotti__carrello input{width:30%;background:#F8F8FF; outline: none; border:none;font-family: "Lucida Console", "Courier New", monospace;font-size:16px;}
+#prezzo{font-family: "Lucida Console", "Courier New", monospace;font-size:20px;}
+
+
+
+#totale__spesa{width:30%;display:inline-block;padding-left:30%;margin-left:2%;font-family: American Typewriter, serif;font-size:18px;border-bottom: 4px solid orange;}
+
+#modalita_pagamento {width:20%; margin:2% 0 0 5%; border: 3px solid;}
+#modalita_pagamento img{width:20%; height:20%;}
+#modalita_spedizione{width:20%; margin:2% 0 0 5%; border: 3px solid;}
+#modalita_spedizione img{width:25%; height:25%;}
+.container{display:block;}
+.container input{float:left;}
+#dati_pagamento {display:none; width:100%;height:60%; border:2px solid red;}
+#conferma_paypal{display:none;}
+#totale__carrello{display:none;width:60%; border:3px solid red;}
+
+#buttonconferma{width:20%;font-family: American Typewriter, serif;font-size:20px; border: none; margin: 0 0 0 5%;}
+#buttonconferma button{width:100px; height:60px; background:green;color:black; border-radius:20px;font-family: American Typewriter, serif;font-size:18px;}
+
+
+#conferma_paypal h1{font-size:18px;font-family: American Typewriter, serif;}
+#loading {display:none; float:right; position:absolute;right:60%; bottom:30%;width:10%; height:12%;}
+#svuotacarrello{width:300px;height:200px;background:none; text-decoration:none;font-size:18px;font-family: American Typewriter, serif;margin:0 0 0 60px;}
+#ordini-cliente{width:50%; height:1500px; }
+#ordini-cliente p{font-size:22px;font-family: American Typewriter, serif;}
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+@media(max-width:767px){
+	#mostra__carrello{width:80%; margin-left:10%; height:700px;}
+#conferma__carrello{display:inline;float:left;width:40%;font-family: American Typewriter, serif;font-size:25px; position:fixed; height:60%; margin-top:95%; margin-right:30%; border: none;padding: -100px;margin-left:-80%;}
+#conferma__carrello button{width:200px; height:50px; background:orange;color:black; border-radius:20px;font-family: "Lucida Console", "Courier New", monospace;font-size:18px;margin-top:80%;margin-right:50%;}
+#conferma__carrello button:hover{background:green;}
+#tot{font-family: "Lucida Console", "Courier New", monospace;font-size:20px;margin:0 0 0 15%;}
+
+.prodotti__carrello{display:inline;float:center;width:80%; height:10%; margin:10% 10% 10% 10%; border-bottom:2px solid orange;font-family: "Lucida Console", "Courier New", monospace;font-size:18px; }
+.prodotti__carrello span img{display:inline;float:left;width:20%;margin:5% 0 0 -10%;}
+.prodotti__carrello #nomeprod input{display:inline;float:left;width:70%;height:20%; margin:5% 0 0 2%; border:none; background:#F8F8FF; outline: none;font-size:14px;}
+.prodotti__carrello #quantita input{display:inline;float:right;width:8%; height:17%;margin:0 0 0 0; border-radius:5px; border:2px solid green; background:#F8F8FF; }
+
+.prodotti__carrello #prezzo{display:inline;float:right;width:20%;  font-size:18px;margin-top:-10%;margin-left:95%; margin-right:-10%;}
+#totale{width:10%; height:10%;}
+
+
+
+
+
+.errore__quantita{width:100px; height:10px; border-style:solid; }
+
+
+.carrello__vuoto{width:40%; margin-left:20%;height:80%; }
+.carrello__vuoto img{margin:90px 0 0 -60px;width:360px;}
+.carrello__vuoto button{width:150px; height:50px; background:green;color:black; border-radius:20px;font-family: "Lucida Console", "Courier New", monospace;font-size:18px;}
+.carrello__vuoto button:hover{background:orange;}
+
+.riepilogo__prodotti__carrello {display:inline-block;width:60%;height:5%; margin:1% 0 0 2%; border:none; background:#F8F8FF; outline: none;}
+.riepilogo__prodotti__carrello input{width:30%;background:#F8F8FF; outline: none; border:none;font-family: "Lucida Console", "Courier New", monospace;font-size:16px;}
+#prezzo{font-family: "Lucida Console", "Courier New", monospace;font-size:20px; float:right;}
+
+
+
+#totale__spesa{width:30%;display:inline-block;padding-left:30%;margin-left:2%;font-family: American Typewriter, serif;font-size:18px;border-bottom: 4px solid orange;}
+
+#modalita_pagamento {width:20%; margin:2% 0 0 5%; border: 3px solid;}
+#modalita_pagamento img{width:20%; height:20%;}
+#modalita_spedizione{width:20%; margin:2% 0 0 5%; border: 3px solid;}
+#modalita_spedizione img{width:25%; height:25%;}
+.container{display:block;}
+.container input{float:left;}
+#dati_pagamento {display:none; width:100%;height:60%; border:2px solid red;}
+#conferma_paypal{display:none;}
+#totale__carrello{display:none;width:60%; border:3px solid red;}
+#buttonconferma{width:20%;font-size:18px;font-family: American Typewriter, serif;}
+#conferma_paypal h1{font-size:18px;font-family: American Typewriter, serif;}
+#loading {display:none; float:right; position:absolute;right:60%; bottom:30%;width:10%; height:12%;}
+#svuotacarrello{width:300px;height:200px;background:none; text-decoration:none;font-size:18px;font-family: American Typewriter, serif;margin:0 0 0 60px;}
+.banner{width:60%; height:80px; position:fixed; bottom:0; background:grey; display:block; margin:0; z-index:111111;}
+	
+}

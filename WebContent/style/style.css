@@ -1,0 +1,164 @@
+@charset "ISO-8859-1";
+
+html,body{height:98%; background:#F8F8FF;}
+
+.banner{display:none;}
+.header{background:lightgrey;  width:100%; height:100px;  z-index:10;  border-bottom: 3px solid grey;}
+.header__logo{color:white;float:left; display:block;}
+.header__logo img{width:300px; height:90px; padding :5px 5px 10px 0px; margin-left:-20px;}
+.header__menu{float:right; margin:0; padding-bottom :10px; margin:50px 0px 10px 10px;}
+
+.header__menu__item{display:inline; float:left;padding :8px 12px 8px 12px;font-size:25px; font-family:"Sofia";text-decoration:none; text-align:center;  }
+.header__menu__item{color:white; display:block;padding:5px;}
+.header__menu__item a:link{color:black;}
+.header__menu__item a:visited{color:black;}
+.header__menu__item:hover{background:green;}
+.header__menu__item a{text-decoration:none;}
+
+
+.header__menu__sotto{  display:none;
+  position: absolute;
+  right:20px;
+  top:80px;
+  background-color: #f1f1f1;
+
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;}
+  
+.header__menu__sotto a{color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; }
+.header__menu__sotto a:hover{background:green;}
+
+#ris__ricerca{
+	display:block;
+	position: absolute;
+  background-color: #f1f1f1;
+  width:25%;
+  height:auto;
+  margin-left:3%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#ris__ricerca a{
+	display:inline;
+	float:left;
+	color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  
+}
+
+#ris__ricerca a:hover{background:green;}
+#username:hover .header__menu__sotto{display:block;}
+.accedi__mobile{display:none;}
+
+.ricerca{display:inline; float:left; width:35%; height:40%; border-radius:12px; margin-left:10%;border-style:none; margin-top:40px; padding:0;}
+
+.ricerca form{width:100%;height:100%; border-style:none; }
+.ricerca_testo {display:inline;float:left;width:85%; height:92%;border-style:none; border-radius: 12px 0px 0px 12px;background:white;}
+
+#input_ricerca{width:98%; height:100%; margin:0;padding-left:10px;border-style:none;  padding-right:5px;border-radius:12px 0px 0px 12px;  outline: none;}
+.ricerca_img{display:inline;float:right; width:15%;height:100%;  }
+.ricerca_img button{width:100%; height:100%; padding :0; margin:0;border-style:none; border-radius:0px 12px 12px 0px; background:green; }
+#img_ricerca{ width:35px; height:35px; padding:2px 0px 10px 10px;}
+
+#carrello{display:inline; float:left; width:50px;height:35px; margin:32px 0 0 25px;}
+#carrello img{width:100%;}
+#carrello img:hover{-moz-transform: scale(1.1);-webkit-transform: scale(1.1);transform: scale(1.1);}.ricerca_testo:a {border: 8px solid green; border-radius:12px;}
+
+.header__icon-bar span{display:block; height:3px;width:40px;background:black; margin:7px 5px 5px 5px;}
+.header__icon-bar {display:block;float:right; padding: 20px; }
+
+.center{width:96%; height:80%; border-style:none; margin-left:2%;display:inline-block;border-bottom:2px solid orange;}
+
+.slogan{float:left;display:inline;width:20% ;margin-left:1%;margin-top:2%; height:90%;border-style:none;}
+.slogan h1,h2{ font-family:"Lucida Console", "Courier New", monospace;  color:black; font-size:27px;}
+.slogan h2{font-size:20px;}
+.slogan img{width:80%; height:50%; margin:0 20% 0 0; border-radius:5px;  border-left: 4px solid orange;}
+.immagine{position:relative;float:left;display:inline;width:55% ;margin-left:1%; margin-right:0;margin-top:0;height:90%; border-style:none; }
+.immagine img{width:100%; height:70%;border-bottom: 4px solid orange; }
+.offerta{float:right;display:inline;width:20% ;margin-right:1%;margin-top:2%;height:90%;border-style:none;}
+
+.slo{float:right;display:inline;width:20% ;margin-left:1%;margin-top:2%; height:90%;border-style:none;}
+.slo h1,h2{font-family: "Lucida Console", "Courier New", monospace; color:black; font-size:27px;}
+.slo h2{font-size:20px;}
+.slo img{width:80%; height:50%; margin:0 20% 0 0; border-radius:5px;    border-right: 4px solid orange;}
+
+
+.immagine__cerchio{display:inline; float:left;width:17%;height:27%; border-radius:100%;  margin-left:6%; margin-top:20px;}
+.immagine__cerchio img{width:100%;height:100%;border-radius:100%;padding:0; margin : 0;}
+.immagine__cerchio :hover{border:3px;border-style:solid;border-color:green;}
+.immagine__cerchio a:hover{border-style:none;}
+.home{ display:none;}
+.home-generale{display:none;}
+
+#contenitore_prodotti{width:80%; height:40%; border-style:none; margin:2% 5% 0 15%; }
+#slogan-bio{width:90%; height:45%; border-style:none; margin:2% 5% 3% 5%; }
+.bio{display:inline; float:left;width:50%;height:100%;}
+.bio img{width:95%; height:100%; border-radius:10px;}
+.bio h1{  font-weight: bold;font-size:30px;font-family: "Lucida Console", "Courier New", monospace; color:black; padding:10px 10px 10px 10px; margin:0 0 0 0;}
+.bio h2{font-style: italic;font-size:20px;font-family: "Lucida Console", "Courier New", monospace; color:black;padding:10px 10px 30px 10px; margin:0 0 0 0;}
+
+
+
+@media(max-width:998px){
+
+	
+	
+	
+}
+
+
+@media(max-width:767px){
+	#carrello{display:none;}
+	.banner{width:400px; height:80px; position:fixed; bottom:0; background:grey; display:block; margin:0; z-index:111111;}
+	.accedi__mobile{width:70px;display:block; float:right; font-size:25px;}
+	.accedi__mobile__item{display:none;}
+	.header__logo img{width:200px; height:80px; padding :5px 5px 5px 0px;}
+	
+	.center{position:relative;}
+	.header{position:fixed; z-index:100; width:100%;   }
+	
+	.header__menu__sotto{display:none;}
+	.header__menu{display:none;}
+	
+	.is-open{height:250px; color:black; background:lightgrey; position:absolute; bottom:500px; }
+	
+	.slogan{display:none;}
+	.slo{display:none;}
+	.offerta{display:none;}
+	.immagine{width:90%; margin-left:5%;}
+	.immagine__cerchio{display:block; float:left;width:60px;height:60px; border-radius:100%; border-style:solid;  padding:0;margin-left:15px; margin-top:10px;}
+	.ricerca{display:none;}
+	
+	.home {width:20%; height:100%; display:block;float:left;padding:5px 5px 10px 5px;}
+	.home img{width:50px; height:50px; padding:10px 10px 10px 10px;}
+	.home img:hover{background:green;}
+	
+	#slogan-bio{height:700px;}
+	.bio{display:block;float: left; width:100%;height:50%;}
+	.bio img{width:100%; height:100%; border-radius:5px; display: block; float:left;}
+	bio .h1, .h2{  width:100%; height:50%; display:block; float:left;font-weight: bold;font-size:3px;font-family: "Lucida Console", "Courier New", monospace; color:black; padding: 0px 0px 0px 0px; margin-top:10px;}
+
+	
+	
+
+
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+}

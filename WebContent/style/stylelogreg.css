@@ -1,0 +1,235 @@
+@charset "ISO-8859-1";
+
+.login {
+	width: 50%;
+	margin-top:7%;
+	margin-left: 25%;
+	margin-right: 25%;
+	text-align:center;
+	
+	
+}
+
+.login table {
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+.login tr {
+	margin-top: 5%;
+}
+
+.login input {
+	width: 100%;
+	height:50px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+}
+
+
+
+#utente input:focus {
+	border: 3px solid green;
+	float:left;
+}
+
+
+.login input:focus{
+	border: 3px solid green;
+}
+
+
+
+
+#bottone{
+	width: 30%;
+	margin-top: 50px;
+	margin-left: 35%;
+	margin-right:35%;
+	border-radius: 5px;
+}
+#bottoneAmm{
+	width: 40%;
+	margin-top: 50px;
+	margin-left: 35%;
+	margin-right:35%;
+	border-radius: 5px;
+}
+#bottone:hover{
+	border: 3px solid green;
+}
+
+#iscriviti{
+	width:40%;
+	margin-left:30%;
+}
+
+#iscriviti:hover{
+	border: 3px solid green;
+}
+
+#errorelogin{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:green;
+	border:none;
+	width:300px;
+	height:200px;
+	margin:5% 50% 50% 45%;
+
+}
+#errorelogin h1{
+	color:red;
+}
+
+
+.registrazione{
+	width:58%;
+	HEIGHT:AUTO;
+	margin-left:20%;
+	margin-right:20%;
+
+}
+
+.registrazione table{
+	width:60%;
+	margin: 8% 15% 2% 20%;
+	HEIGHT:AUTO;
+	}
+	.tegistrazione td,input{width:80%; height:40px; margin:0;}
+
+#utente{width:100%;border-style:solid;}	
+	#utente input{width:400px; border-style:solid;}
+	
+	
+	@media(max-width:767px){
+	
+	.login {
+	width: 50%;
+	
+	
+}
+
+.login table {
+	width:100%;
+	
+	margin-top:70%;
+	margin-right:25%;
+	margin-left:-10%;
+	
+}
+
+.login tr {
+	margin-top: 5%;
+}
+
+.login input {
+	width: 100%;
+	height:25x;
+	padding: 12px 20px;
+	margin: 30px 0;
+	box-sizing: border-box;
+	border: 3px solid #ccc;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	outline: none;
+}
+
+
+
+
+#utente input:focus {
+	border: 3px solid green;
+	float:left;
+}
+
+
+.login input:focus{
+	border: 3px solid green;
+}
+
+
+
+
+#bottone{
+	width: 70%;
+	margin-top: 25px;
+	margin-left: 10%;
+	margin-right:3%;
+	border-radius: 5px;
+}
+#bottone:hover{
+	border: 3px solid green;
+}
+
+#iscriviti{
+	width:40%;
+	margin-left:30%;
+}
+
+#iscriviti:hover{
+	border: 3px solid green;
+}
+
+#errorelogin{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:green;
+	border-style:none;
+	width:300px;
+	height:200px;
+	margin:5% 50% 50% 30%;
+
+}
+#errorelogin h1{
+	color:red;
+}
+
+
+.registrazione{
+	width:58%;
+	HEIGHT:AUTO;
+	margin-left:20%;
+	margin-right:20%;
+
+}
+
+.registrazione table{
+	width:60%;
+	margin: 8% 15% 2% 20%;
+	HEIGHT:AUTO;
+	}
+	.tegistrazione td,input{width:80%; height:40px; margin:0;}
+
+#utente{width:100%;border-style:solid;}	
+	#utente input{width:400px; border-style:solid;}
+	
+	#errorelogin img{
+	width:100%;
+	height:100%;
+	}
+	
+	.banner{width:80%; height:80px; position:fixed; bottom:0; background:grey; display:block; margin:0; z-index:111111;}
+	
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+	
+	
+	
+	
+	
+	}

@@ -1,0 +1,143 @@
+@charset "ISO-8859-1";
+
+.banner {
+	width: auto;
+	height: 60px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 0px;
+	background-color: lightgrey;
+	overflow: hidden;
+}
+
+#publicità {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	font-size: 25px;
+	padding-left: 700px;
+	padding-top: 0px;
+	padding-bottom: 50px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: lightgrey;
+}
+
+li {
+	float: left;
+	margin-left: 5%;
+}
+
+li a {
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 33px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: green;
+}
+li a:active{
+color: green;
+	}
+.page {
+	width: auto;
+	height: auto;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 15px;
+}
+
+.menu {
+	width: 80%;
+	height:auto;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.logo {
+	width: 15%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 0%;
+	
+}
+
+#img {
+	display: inline;
+	width: 300px;
+	height: 80px;
+	margin-left: 4%;
+}
+
+#carrello {
+	cursor: pointer;
+	display: inline;
+	width: 15%;
+	margin-left: 15%;
+}
+
+#testocarrello:link {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	text-decoration: none;
+	font-size: 25px;
+}
+
+#testocarrello:hover {
+	color: green;
+}
+
+#text {
+	width: 25%;
+	float: left;
+	display: inline;
+	box-sizing: border-box;
+	border: 2px solid green;
+	margin-top: 40px;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-image: url('immagini/lente.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+
+#accesso {
+	margin-left: 20%;
+}
+
+
+
+.utente-connesso {
+  position: relative;
+  display: inline-block;
+}
+
+#username{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.menu-utente {
+	font-family: Arial, Helvetica, sans-serif;
+  display: none;
+  position: relative;
+  background-color: grey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.utente-connesso:hover .menu-utente {
+  display: block;
+}
