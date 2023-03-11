@@ -9,13 +9,13 @@
 <script src="../JS/controllo-pregistrazione.js"></script>
 
 <%
-String username= (String)request.getSession().getAttribute("nome");
+
 Utente neg=(Utente)request.getSession().getAttribute("neg");
 %>
 
 </head>
 <body>
-
+ <%@ include file="Header2.jsp"%><br>
 
 <div id="utente">
 <fieldset>
@@ -26,7 +26,7 @@ Utente neg=(Utente)request.getSession().getAttribute("neg");
 
 <table>
 <tr>
-<td><input id="rsociale" type="text" name="user " placeholder="<%=username%>" onblur="uppercase(this)"></td><td><p id=erroreragione></td>
+<td><input id="rsociale" type="text" name="user " placeholder="<%=username%>"  readonly="readonly" onblur="uppercase(this)"></td><td><p id=erroreragione></td>
 </tr>
 
 <tr>
@@ -70,5 +70,6 @@ Utente neg=(Utente)request.getSession().getAttribute("neg");
 <script src="../JS/controllo-registrazione.js"></script>
 
 </div>
+<%@ include file="../foother.jsp" %>
 </body>
 </html>

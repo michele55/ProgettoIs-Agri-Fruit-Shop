@@ -92,7 +92,7 @@ public class passwordpersa extends HttpServlet {
 		if(request.getSession() !=null) {
 			request.getSession().invalidate();
 		}
-		
+		request.getServletContext().getRequestDispatcher("/homepage.jsp").forward(request, response); 
 		
 	}
 

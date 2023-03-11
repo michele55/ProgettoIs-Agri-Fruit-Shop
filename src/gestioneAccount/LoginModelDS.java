@@ -18,11 +18,14 @@ public class LoginModelDS implements utenteModel<Utente>{
 
 	
 	private Connection ds;
+	private DataSource ds3;
 	private Connection ds2;
 	public LoginModelDS(Connection ds) {
 		this.ds=ds;
 	}
-	
+	public LoginModelDS(DataSource ds3) {
+		this.ds3=ds3;
+	}
 	
 	
 	public Utente doRetrieveByNome(String rags) throws SQLException {
@@ -197,21 +200,21 @@ public class LoginModelDS implements utenteModel<Utente>{
 		Connection 	connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String SQL="UPDATE utente SET "+" nome= ?,cognome=?, indirizzo= ? , ncivico=?, cap=? , codice_fiscale= ?, pwd=? WHERE email=?";
+		String SQL="UPDATE utente SET "+"  indirizzo= ? , ncivico=?, cap=? , codice_fiscale= ?, pwd=sha1(?) WHERE email=?";
 		try {
-			connection = ds;
+			connection =  ds;
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(SQL);
 
-			preparedStatement.setString(1, item.getNome());
-			preparedStatement.setString(2, item.getCognome());
-			preparedStatement.setString(3, item.getIndirizzo());
-			preparedStatement.setString(4, item.getCivico());
-			preparedStatement.setString(5, item.getCap());
-			preparedStatement.setString(6, item.getCodice_fiscale());
-			preparedStatement.setString(7, item.getPwd());
-			preparedStatement.setString(8, item.getEmail());
-if(item.getNome()==null|| item.getCognome()==null || item.getIndirizzo()==null || item.getCivico()==null||
+		//	preparedStatement.setString(1, item.getNome());
+		//	preparedStatement.setString(2, item.getCognome());
+			preparedStatement.setString(1, item.getIndirizzo());
+			preparedStatement.setString(2, item.getCivico());
+			preparedStatement.setString(3, item.getCap());
+			preparedStatement.setString(4, item.getCodice_fiscale());
+			preparedStatement.setString(5, item.getPwd());
+			preparedStatement.setString(6, item.getEmail());
+if( item.getIndirizzo()==null || item.getCivico()==null||
 item.getCap()==null || item.getCodice_fiscale()==null || item.getPwd()==null ||item.getEmail()==null) {
 	return false;
 }
@@ -265,12 +268,13 @@ item.getCap()==null || item.getCodice_fiscale()==null || item.getPwd()==null ||i
 			
 			
 			connection.commit();
-			return true;
+			
 			
 
 		}
 		catch(SQLException e) {
-			e.printStackTrace();
+			return false;
+			//e.printStackTrace();
 		}
 		
 		

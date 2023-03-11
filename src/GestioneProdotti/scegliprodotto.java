@@ -54,14 +54,21 @@ public class scegliprodotto extends HttpServlet {
 		
 		try {
 			prodotto=model.doRetrieveByKey(categoria);
-			risposta.append("<option></option>");
-			Iterator<?> it=prodotto.iterator();
-			while(it.hasNext()){
-				prodotto beans=(prodotto)it.next();
-				
-				risposta.append("<option value="+beans.getNome()+">");
-				risposta.append(beans.getNome());
-				risposta.append("</option>");}
+			if(!prodotto.isEmpty()) {
+				request.getSession().setAttribute("risultato","ok");
+				risposta.append("<option></option>");
+				Iterator<?> it=prodotto.iterator();
+				while(it.hasNext()){
+					prodotto beans=(prodotto)it.next();
+					
+					risposta.append("<option value="+beans.getNome()+">");
+					risposta.append(beans.getNome());
+					risposta.append("</option>");}
+			}
+			else {
+				request.getSession().setAttribute("risultato","Not Ok");
+			}
+		
 			
 			
 		} catch (SQLException e) {
@@ -81,15 +88,20 @@ public class scegliprodotto extends HttpServlet {
 			try {		
 				
 				prod=model.doRetrieveByNome(nomeprodotto);
-				
-				rispostaprodotto.append("<input type=text name=nome placeholder="+prod.getNome()+">");
-				rispostaprodotto.append("<input type=text name=Ssn placeholder="+prod.getSsn()+">");
-				rispostaprodotto.append("<input type=text name=disponibilita placeholder="+prod.getQuantita()+">");
-				rispostaprodotto.append("<input type=text name=prezzo placeholder="+prod.getPrezzo()+">");
-				rispostaprodotto.append("<input type=text name=descrizione placeholder="+prod.getDescrizione()+">");
-				rispostaprodotto.append("<input type=text name=idfoto placeholder="+prod.getIdfoto()+">");
-				rispostaprodotto.append("<input type= submit value=conferma>");
-				
+				if(!prod.isEmpty()) {
+					rispostaprodotto.append("<input type=text name=nome placeholder="+prod.getNome()+">");
+					rispostaprodotto.append("<input type=text name=Ssn placeholder="+prod.getSsn()+">");
+					rispostaprodotto.append("<input type=text name=disponibilita placeholder="+prod.getQuantita()+">");
+					rispostaprodotto.append("<input type=text name=prezzo placeholder="+prod.getPrezzo()+">");
+					rispostaprodotto.append("<input type=text name=descrizione placeholder="+prod.getDescrizione()+">");
+					rispostaprodotto.append("<input type=text name=idfoto placeholder="+prod.getIdfoto()+">");
+					rispostaprodotto.append("<input type= submit value=conferma>");
+					request.getSession().setAttribute("risultatoNomeProdotto","Nome prodotto Ok");
+				}
+				else {
+					request.getSession().setAttribute("risultatoNomeProdotto","Nome prodotto non esistente");
+				}
+			
 				
 				
 				
@@ -113,7 +125,7 @@ public class scegliprodotto extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

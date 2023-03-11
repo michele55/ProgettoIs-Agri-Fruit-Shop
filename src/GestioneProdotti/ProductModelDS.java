@@ -56,6 +56,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
 		/*finally {
 			try {
@@ -156,7 +157,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 			prepareStatement.setString(1, code);
 
 			ResultSet rs=prepareStatement.executeQuery();
-			
+		
 			while(rs.next()) {
 				
 				bean.setPrezzo(rs.getInt("prezzo"));
@@ -166,9 +167,10 @@ public class ProductModelDS implements ProductModel<prodotto>{
 				bean.setSsn(rs.getString("ssn"));
 				bean.setCtegoria(rs.getString("categ"));
 				bean.setIdfoto(rs.getString("idfoto"));
+			
+				
 						
 			}
-			
 			
 			
 		}
@@ -197,7 +199,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 	
 	
 	@Override
-	public void doSave(prodotto item) throws SQLException {
+	public boolean doSave(prodotto item) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -224,6 +226,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 
 		}catch(SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 		/*finally {
 			try {
@@ -235,7 +238,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 				}
 			}
 		}*/
-		
+		return true;
 	}
 	@Override
 	public void doUpdate(prodotto item) throws SQLException {
@@ -281,7 +284,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 		
 	}
 	@Override
-	public void doDelete(prodotto item) throws SQLException {
+	public boolean doDelete(prodotto item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -291,17 +294,27 @@ public class ProductModelDS implements ProductModel<prodotto>{
 			connection = ds;
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(deleteSQL);
+			if(item.getNome()!="") {
+				preparedStatement.setString(1, item.getNome());
+				utility.print("doDelete: " + preparedStatement.toString());
+				preparedStatement.executeUpdate();
+
+				connection.commit();
+				
+			}
+			else if(item.getNome().equals("")){
+				return false;
+				
+			}
+		
 			
-			preparedStatement.setString(1, item.getNome());
-			utility.print("doDelete: " + preparedStatement.toString());
-			preparedStatement.executeUpdate();
-
-			connection.commit();
-
 		} 
 		catch(SQLException e) {
+			
 			e.printStackTrace();
+			
 		}
+	
 		/*finally {
 			try {
 				if (preparedStatement != null)
@@ -312,6 +325,8 @@ public class ProductModelDS implements ProductModel<prodotto>{
 				}
 			}
 		}*/
+		
+		return true;
 	}
 	
 	

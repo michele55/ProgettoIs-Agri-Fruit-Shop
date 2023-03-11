@@ -36,10 +36,18 @@ public class visualizzaprodotto extends HttpServlet {
 		ProductModelDS model= new ProductModelDS(db);
 		String dato=(String)request.getParameter("nomeprodotto");
 		prodotto p=new prodotto();
-				
+			
 		try {
 			p= model.doRetrieveByscelta(dato);
+			
 			request.setAttribute("prodotti", p);
+			if(p.getNome()!="") {
+				request.getSession().setAttribute("prod", "prodotto ritrovato");
+			}
+			else {
+				request.getSession().setAttribute("prod", "Prodotto null, errore sulla ricerca,probabile non esistente");
+			}
+			
 		} catch (SQLException e) {
 			utility.print(e);
 			
@@ -47,15 +55,15 @@ public class visualizzaprodotto extends HttpServlet {
 			
 			
 		}
-
-	RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher("/prodotti/visualizzaprodotto.jsp");
-	dispacher.forward(request, response);
+		request.getServletContext().getRequestDispatcher("/prodotti/visualizzaprodotto.jsp").forward(request, response);
+	//RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher("/prodotti/visualizzaprodotto.jsp");
+	//dispacher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

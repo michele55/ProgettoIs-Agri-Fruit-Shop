@@ -5,9 +5,11 @@
 Collection<?> prodotti=(Collection<?>)request.getAttribute("prodotti");
 String controlloutente=(String)request.getSession().getAttribute("nome");
 String errorequantita=(String)request.getAttribute("nexquantita");
-
-
-
+String errcarrello=null;
+String errcarrello2=null;
+String aggiunta=null;
+boolean var=false;
+int count = 0;
 if(controlloutente==null){}
 String errore= (String)request.getAttribute("error");
 if(prodotti==null&&errore==null){
@@ -26,8 +28,8 @@ if(prodotti==null&&errore==null){
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="style/prodotti.css" rel="stylesheet" type="text/css">
 
-
-
+<script src="JS/prodotti.js"></script>
+<script src="JS/check.js"></script>
 
 
 </head>
@@ -110,10 +112,26 @@ if(prodotti!=null&&prodotti.size()>0 ){
 	 	  <p><%=(float)beans.getPrezzo()%></p> <p><img width="20px" src="immagini/euro.png"></p><%} %> <br>
 	 	</div>
 	 	<div id="scelta">
-	 	<% if(controlloutente!=null){%>
-		<form action="carrello?action=aggiungi&nome=<%=beans.getNome() %>" method="POST">
-			<input type="number" id="quantita" name="quantita" min="1" max="<%=beans.getQuantita()%>"step="1" value="1"> 
-									<button type="submit">AGGIUNGI</button><%}else{%>
+	 	<%if (controlloutente!=null && beans.getQuantita()==0){ %>
+									
+									<button type="button">NON DISPONIBILE</button>
+									
+								<%} %>	
+								
+	 	<% if(controlloutente!=null && beans.getQuantita()!=0){%>
+	 	
+
+	 	
+		<form action="carrello?action=aggiungi&NomeProd=<%=beans.getNome() %>"   method="POST">
+		
+			<input type="number" id="quantita" name="quantita" min="1" max="<%=beans.getQuantita()%>"step="1" value="1" > 
+			<input type="hidden" id="nomeInput" value="<%=beans.getNome() %>">
+			<input type="hidden" id="nomeInput3" value="<%=(String)request.getSession().getAttribute("AggiuntaCarrello") %>">
+									<button type="submit"  name=bt  id="btn1">AGGIUNGI</button>
+								
+									
+							
+									<%}else if(controlloutente==null){%>
 									<form action="Login.jsp">
 									
 									<button type="submit">Login</button>
@@ -121,7 +139,20 @@ if(prodotti!=null&&prodotti.size()>0 ){
 									
 									</form>
 									<%} %>
+									
+									
+						
+	
 		</form>
+		<script>
+	
+	
+		</script>
+
+		
+		
+		
+		
 		
 		
 		
@@ -141,12 +172,13 @@ if(prodotti!=null&&prodotti.size()>0 ){
 
 
 
+
+
 </div>
 
 
 
 
-<script src="JS/prodotti.js"></script>
 
 <div class="banner clearfix">
 

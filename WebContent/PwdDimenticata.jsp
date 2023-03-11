@@ -20,28 +20,9 @@ Utente neg=(Utente)request.getSession().getAttribute("neg");
 
 <div class="recuperopwd">
 
-<form id="formrecuperopwd" action="passwordpersa" name="formrecuperopwd" method="post" >
-			<table style="with: 50%">
-
-				<tr>
-
-					<td>Email</td>
-					<td><input id="email" type="text" name="email" placeholder="utente@estensione.it" onblur="validamail(this)"  required/></td><td><p id=erroremail>
-				
-					</td>
-					
-					<td>Password</td>
-					<td><input id="password" type="password" name="password" placeholder="Minimo 8 caratteri" onblur="validaconferma(this)"  required/></td><td><p id=erroremail>
-				
-					</td>
-				</tr>
-				
-				
-				</table>
-				<input id="iscriviti" class="iscriviti" type="submit" value="Reimposta Password"   />
-				
-				</form>
-
+<h1>Richiesta Cambio Password</h1>
+<h2>Se hai dimenticato la password, non puoi recuperarla, ma solo richiederne una nuova che dovrai obbligatoriamente cambiare al prossimo accesso
+La richiesta dovrà essere mandata all'indirizzo assistenzapwd@agrifruitshop.it, allegando un documento d'identità, e la tua email usata per la registrazione.</h2>
 
 
 

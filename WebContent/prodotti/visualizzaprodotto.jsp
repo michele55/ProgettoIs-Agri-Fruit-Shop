@@ -30,7 +30,7 @@ if(prodotti==null){
 
 <div id="visualizzaprodotto">
 
-<form id="form" action="carrello?action=aggiungi" method="POST">
+<form id="form" action="carrello?action=aggiungi&NomeProd=<%=prodotti.getNome()%>" method="POST">
 
 
 <div id="nome">
@@ -59,7 +59,7 @@ if(prodotti==null){
 <span><%=prodotti.getPrezzo() %></span>
 <span><img width="20px" src="immagini/euro.png"></span>
 </div>
-<%}%>
+
 
 <div id="categoria">
 <label>Categoria: </label>
@@ -73,7 +73,7 @@ if(prodotti==null){
 <input type="submit" value="Aggiungi">
 </div>
 </form>
-
+<%}%>
 <% }%>
 </div>
 </div>

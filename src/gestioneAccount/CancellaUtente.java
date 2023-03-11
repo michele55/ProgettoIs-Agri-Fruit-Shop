@@ -64,31 +64,38 @@ Connection ds = null;
 		
 		if(Nome!=null) {			
 		if(!Nome.equals("")) {
-			neg.setNome(Nome);;
+			neg.setEmail(Nome);;
 		}
 		}
-	
-	
+		boolean count=true;
+		boolean test2 = false;
 		try {
-			 model.doDelete(neg.getEmail());
+			if(model.doRetrieveByKey(neg.getEmail()) != null) {
+				 model.doDelete(neg.getEmail());	
+				 request.setAttribute("delete","Cancellazione effettuata con successo");
+			}
+		
+			
 			
 		} catch (SQLException e) {
 			utility.print(e);
 			
 			request.setAttribute("error", e.getMessage());
 		}
+
+			
 		
 	
-	
+		request.getServletContext().getRequestDispatcher("/homepage.jsp").forward(request, response); 
 		
-		RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher("/homepage.jsp");
-		dispacher.forward(request, response);
+	//	RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher("/homepage.jsp");
+	//	dispacher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

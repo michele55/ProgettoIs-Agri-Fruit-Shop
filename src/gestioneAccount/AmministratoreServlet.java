@@ -30,7 +30,7 @@ public class AmministratoreServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String testMessage="";
 		String username= request.getParameter("Email");
@@ -80,43 +80,53 @@ ssn.setMaxInactiveInterval(60);
 		try {
 			amministratore=(model.doRetrieveByKey(username));
 	
-			if(amministratore.isEmpty()) {
+			if( amministratore==null) {
 				System.out.println("errorequi1");
 				request.setAttribute("erroreaccount",errore);	
+				request.setAttribute("erroreNullo","Parametri nulli");
 			}
 			
-			
-			if(amministratore.getPwd()==null&&amministratore.getEmail()==null) {
-				System.out.println("Email e Password Nulli");
-				request.setAttribute("erroreaccount",errore);	
-			
-			} else {	
-				if((amministratore.getPwd().equals(password))&&(amministratore.getEmail().equals(username))&& (amministratore.getRuolo().equals("Amministratore"))) {
+			if(amministratore!=null) {
+				if(amministratore.getPwd()==null||amministratore.getEmail()==null) {
+					System.out.println("Email e Password Nulli");
+					request.setAttribute("erroreaccount",errore);	
+					request.setAttribute("erroreaccount","Parametri nulli");	
+				
+				}
+				
+				
+if((amministratore.getPwd().equals(password))&&(amministratore.getEmail().equals(username))&& (amministratore.getRuolo().equals("Amministratore"))) {
 					
 					System.out.println("Login Amministratore effettuato con successo");
 					ssn.setAttribute("nome",amministratore.getNome());
 						ssn.setAttribute("amm", "Amministratore");
-						
+						request.setAttribute("Successo", "Login Effettuato con Successo");
 						//ssn.setAttribute("neg", neg);
 					//	ssn.setAttribute("presente",true);
 					//	response.sendRedirect("homepage.jsp");
-				} else {
-					
-					System.out.println("Errore di password o email");
-					System.out.println(amministratore.getPwd());
-					System.out.println(amministratore.getEmail());
-					System.out.println(amministratore.getRuolo());
-						request.setAttribute("passerrore",errore);				
-				}}
+				}
+else {
+	
+	System.out.println("Errore di password o email");
+	System.out.println(amministratore.getPwd());
+	System.out.println(amministratore.getEmail());
+	System.out.println(amministratore.getRuolo());
+		request.setAttribute("passerrore",errore);
+		request.setAttribute("errore","Errore di password o email");
+}
+			}
+			
+				
 				
 		} catch (SQLException e) {
 			System.out.println("Errore generico");
 					response.sendRedirect("homepage.jsp");		
 		}
 		
+		request.getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response); 
 		
-		RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher("/Login.jsp");
-		dispacher.include(request, response);
+	//	RequestDispatcher dispacher=this.getServletContext().getRequestDispatcher.forward("/Login.jsp");
+		//dispacher.include(request, response);
 	}
 
 }

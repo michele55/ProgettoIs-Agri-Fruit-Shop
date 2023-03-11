@@ -33,9 +33,10 @@ public class ordiniclienti extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		response.setContentType("text/html");
-		String nomenegozio=(String) request.getSession().getAttribute("nome");
-
+		
+	//	String nomenegozio=(String) request.getSession().getAttribute("nome");
+		String email=(String) request.getSession().getAttribute("emailutente");
+response.setContentType("text/html");
 		Connection ds = null;
 		try {
 			ds = DBConnectionPool.getConnection();
@@ -54,18 +55,20 @@ public class ordiniclienti extends HttpServlet {
 	
 				Collection <ordine> ordine= new LinkedList<ordine>(); 
 				Collection <composto> composto= new LinkedList<composto>(); 
-
-				
+			
 			try {
-				neg=modelnegozio.doRetrieveByNome(nomenegozio);
+				neg=modelnegozio.doRetrieveByKey(email);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		
-
+			
 			try {
 				ordine=modelordine.doRetrieveByCodice_fiscale(neg.getCodice_fiscale());
+	
+				
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -73,7 +76,16 @@ public class ordiniclienti extends HttpServlet {
 			risposta.append("<p>");
 			risposta.append(neg.getNome());	
 			risposta.append("</p>");
-	
+			System.out.println(ordine.size());
+			if(ordine.size()>0) {
+				request.setAttribute("ord", "Ordine ritrovato");
+			}
+			
+			
+			else {
+				request.setAttribute("ordInesistente", "Ordine Inesistente");
+				
+			}
 		Iterator<?> it=ordine.iterator();
 		while(it.hasNext()) {
 			ordine beans=(ordine) it.next();
@@ -91,6 +103,8 @@ public class ordiniclienti extends HttpServlet {
 				}
 				
 				Iterator <?> itcomposto=composto.iterator();
+			
+			
 				while(itcomposto.hasNext()) {
 					composto bean=(composto) itcomposto.next();
 					
@@ -113,20 +127,6 @@ public class ordiniclienti extends HttpServlet {
 		
 		}
 
-				
-				
-				
-				
-			
-	
-			
-			
-			
-			
-			
-	
-		
-	
 		
 		
 		response.getWriter().write(risposta.toString());
@@ -135,9 +135,10 @@ public class ordiniclienti extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+				
 	}
 
 }

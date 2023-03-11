@@ -93,7 +93,7 @@ private DataSource ds= null;
 		Connection 	connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String SQL="UPDATE negozio SET "+"  pwd=sha1(?) WHERE email=?";
+		String SQL="UPDATE utente SET "+"  pwd=sha1(?) WHERE email=?";
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
@@ -107,7 +107,14 @@ private DataSource ds= null;
 
 			connection.commit();
 
-		} finally {
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		
+		finally {
 			try {
 				if (preparedStatement != null)
 					preparedStatement.close();

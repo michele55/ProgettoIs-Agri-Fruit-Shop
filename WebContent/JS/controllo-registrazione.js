@@ -34,7 +34,7 @@ return true;
 
 
 function validapass(password){
-	var ck_password = /^[A-Za-z0-9]{8,8}$/;
+	var ck_password = /^[A-Za-z0-9]{8,20}$/;
 	var pas1= password.value;
 	
 	
@@ -57,7 +57,7 @@ function validapass(password){
 
 function validaconferma(conferma){
 	var s=document.getElementById("password").value;
-	var ck_password = /^[A-Za-z0-9]{8,8}$/;
+	var ck_password = /^[A-Za-z0-9]{8,20}$/;
 	var pas1= conferma.value;
 
 	if(!ck_password.test(pas1)){

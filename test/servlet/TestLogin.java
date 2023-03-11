@@ -55,10 +55,37 @@ public class TestLogin extends Mockito{
 	
 	   @Test
 	    public void TestLoginCorretto () throws ServletException, IOException  {
-		   request.setParameter("username", "ciaociao@gmail.com");
-	        request.setParameter("password", "qwertyui");
+		   request.setParameter("Email", "alex@gmail.com");
+	        request.setParameter("password", "cavese12");
 	        servlet.doPost(request, response);
-	        assertNull(request.getAttribute("presente"));
+	        assertEquals("Login avvenuto correttamente",request.getAttribute("login"));
 	    }
+
+	   @Test
+	    public void TestLoginNonCorretto () throws ServletException, IOException  {
+		   request.setParameter("Email", "ale@gmail.com");
+	        request.setParameter("password", "cavese12");
+	        servlet.doPost(request, response);
+	        assertEquals("Parametri Sbagliati",request.getAttribute("erroreParametri"));
+	    }
+	   
+	   @Test
+	    public void TestLoginConPwdNulla () throws ServletException, IOException  {
+		   request.setParameter("Email", "alex@gmail.com");
+	        request.setParameter("password", "");
+	        servlet.doPost(request, response);
+	        assertEquals("Errore Password",request.getAttribute("passerrore"));
+	    }
+	   
+	   
+	   @Test
+	    public void TestLoginConUserNullo () throws ServletException, IOException  {
+		   request.setParameter("Email", "");
+	        request.setParameter("password", "cavese12");
+	        servlet.doPost(request, response);
+	        assertEquals("Parametri Sbagliati",request.getAttribute("erroreParametri"));
+	     
+	    }
+
 
 }

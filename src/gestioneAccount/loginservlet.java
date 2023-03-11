@@ -85,34 +85,47 @@ ssn.setMaxInactiveInterval(60);
 		try {
 			neg=(model.doRetrieveByKey(username));
 	
-			if(neg.isEmpty()) {
+			if((neg.equals(null))|| (neg.isEmpty())) {
 				System.out.println("errorequi1");
 				request.setAttribute("erroreaccount",errore);	
+				request.setAttribute("erroreParametri","Parametri Sbagliati");
 			}
+				
 			
-			
-			if(neg.getPwd()==null&&neg.getEmail()==null) {
-				System.out.println("Email e Password Nulli");
+			if((neg.getPwd()==null||neg.getEmail()==null)||(neg.getPwd()==null && neg.getEmail()==null)) {
+				System.out.println("Email o Password Nulli, o entrambi nulli");
 				request.setAttribute("erroreaccount",errore);	
+				request.setAttribute("Campi nulli", "Errori campi email/pwd uno dei due è nullo o entrambi nulli");
 			
-			} else {	
-				if((neg.getPwd().equals(password))&&(neg.getEmail().equals(username))&& (neg.getRuolo().equals("Utente"))) {
+			} else if(neg!=null) {
+	if((neg.getPwd().equals(password))&&(neg.getEmail().equals(username))&& (neg.getRuolo().equals("Utente"))) {
 					
 					System.out.println("Controllo avvenuto correttamente, login effettuato");
 					
 						ssn.setAttribute("nome",neg.getNome());
+						ssn.setAttribute("emailutente", neg.getEmail());
 						ssn.setAttribute("neg", neg);
 						ssn.setAttribute("presente",true);
+						request.setAttribute("login", "Login avvenuto correttamente");
 						response.sendRedirect("homepage.jsp");
-				} else {
+				} else if(neg.getPwd()!=password){
 					
-					System.out.println("Errore di password o email");
-						request.setAttribute("passerrore",errore);				
-				}}
+					System.out.println("Errore di password ");
+						request.setAttribute("passerrore",errore);		
+						request.setAttribute("passerrore","Errore Password");	
+				}
+					
+				}
+				
+				
+				
+				
+			
 				
 		} catch (SQLException e) {
 			System.out.println("Errore generico");
-					response.sendRedirect("homepage.jsp");		
+			request.getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response); 
+					//response.sendRedirect("homepage.jsp");		
 		}
 		
 		

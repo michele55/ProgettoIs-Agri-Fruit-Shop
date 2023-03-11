@@ -120,8 +120,49 @@ OrdineModel ord=new OrdineModel(ds);
 
 
 	@Override
-	public void doDelete(composto item) throws SQLException {
-		// TODO Auto-generated method stub
+	public boolean doDelete(composto item) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String deleteSQL = "DELETE FROM composto WHERE SSN = ?";
+
+		try {
+			connection = ds;
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			if(item.getSsn()!="") {
+				preparedStatement.setString(1, item.getSsn());
+				utility.print("doDelete: " + preparedStatement.toString());
+				preparedStatement.executeUpdate();
+
+				connection.commit();
+				
+			}
+			else if(item.getSsn().equals("")){
+				return false;
+				
+			}
+		
+			
+		} 
+		catch(SQLException e) {
+			
+			e.printStackTrace();
+			
+		}
+	
+		/*finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null) {
+					connection.close();
+				}
+			}
+		}*/
+		
+		return true;
 		
 	}
 	

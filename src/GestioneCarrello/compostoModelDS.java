@@ -12,6 +12,6 @@ public interface compostoModelDS<T> {
 	public void doSave(T item) throws SQLException ;
 	
 	public void doUpdate(T item) throws SQLException ;
-	public void doDelete(T item) throws SQLException ;
+	public boolean doDelete(T item) throws SQLException ;
 	
 }

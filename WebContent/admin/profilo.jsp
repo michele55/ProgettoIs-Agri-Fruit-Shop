@@ -183,7 +183,41 @@
 
 </form>
 
+<form class="ModificaPwdUtente" action="../passwordpersa" method="post">
+<h2>Modifica Password Utente</h2>
 
+<table>
+
+
+
+
+<tr>
+
+<td><input type="text" name="email" placeholder="email" required></td>
+</tr>
+<tr>
+
+<td><input type="password" name="password" placeholder="password" required></td>
+</tr>
+
+
+
+
+
+<tr>
+<td>
+<input type="submit" value="invio">
+</td>
+</tr>
+</table>
+
+
+
+
+
+
+
+</form>
 
 
 

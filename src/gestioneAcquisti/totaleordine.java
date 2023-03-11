@@ -78,7 +78,7 @@ public class totaleordine extends HttpServlet {
 			
 		}
 	
-			
+			System.out.println(nomenegozio);
 		if(carrello!=null) {
 
 			
@@ -91,7 +91,7 @@ public class totaleordine extends HttpServlet {
 					spedizione.setNumeroordine(numeroordine);
 					spedizione.setCostospedizione(costospedizione);
 					spedizione.setModalitaspedizione("GLS");
-					
+					request.getSession().setAttribute("SceltaSpedizioneOk", "La Scelta della spedizione è stata registrata");
 					
 				}
 				if(tipospedizione.equals("SDA")) {
@@ -103,6 +103,7 @@ public class totaleordine extends HttpServlet {
 					spedizione.setNumeroordine(numeroordine);
 					spedizione.setCostospedizione(costospedizione);
 					spedizione.setModalitaspedizione("SDA");
+					request.getSession().setAttribute("SceltaSpedizioneOk", "La Scelta della spedizione è stata registrata");
 				}
 				if(tipospedizione.equals("MANO")) {
 					costospedizione=0;
@@ -111,10 +112,15 @@ public class totaleordine extends HttpServlet {
 					spedizione.setNumeroordine(numeroordine);
 					spedizione.setCostospedizione(costospedizione);
 					spedizione.setModalitaspedizione("RITIRO");
+					request.getSession().setAttribute("SceltaSpedizioneOk", "La Scelta della spedizione è stata registrata");
 				}
 				
 				try {
+					
 					idspedizione=modelspedizione.doSave(spedizione);
+					request.getSession().setAttribute("SpedizioneInserita", "La spedizione è stata salvata");
+					
+					
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -131,7 +137,7 @@ public class totaleordine extends HttpServlet {
 					
 					pagamento.setNumeropagamento(numerospedizione);
 				pagamento.setModalitapagamento("contanti");
-				
+				request.getSession().setAttribute("SceltaPagamentoOk", "La Scelta del pagamento è stata registrata");
 				
 				cont=4;
 				}
@@ -142,6 +148,7 @@ public class totaleordine extends HttpServlet {
 					pagamento.setNumeropagamento(numerospedizione);
 				pagamento.setModalitapagamento("mastercard");
 				cont=0;
+				request.getSession().setAttribute("SceltaPagamentoOk", "La Scelta del pagamento è stata registrata");
 				}
 			
 	
@@ -150,7 +157,7 @@ public class totaleordine extends HttpServlet {
 					pagamento.setNumeropagamento(numerospedizione);
 				pagamento.setModalitapagamento("paypal");
 				cont=0;
-			
+				request.getSession().setAttribute("SceltaPagamentoOk", "La Scelta del pagamento è stata registrata");
 				
 			}
 				
@@ -158,6 +165,7 @@ public class totaleordine extends HttpServlet {
 				try {
 					modelpagamento.doSave(pagamento);
 					modelordine.doUpdate(ordine);
+					request.getSession().setAttribute("SalvataggioPagamento", "Il Pagamento è stato salvato correttamente");
 					} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -178,7 +186,7 @@ public class totaleordine extends HttpServlet {
 	}
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
