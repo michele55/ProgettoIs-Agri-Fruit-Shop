@@ -38,6 +38,8 @@ CREATE TABLE utente (
   nome    varchar(50)  not NULL,
   cognome varchar(50) not NULL,
   indirizzo varchar(30)          not NULL,
+  citta varchar(50) not NULL,
+  provincia varchar(50) not NULL,
   ncivico int(4) not null,
   cap int(5) not null,
   codice_fiscale      varchar(16)           not NULL,
@@ -106,6 +108,11 @@ CREATE TABLE spedizione (
  numero   int not NULL,
  modalitaspedizione varchar(15) not null,
  costospedizione int not null,
+ citta varchar(50) not null,
+ provincia varchar(50) not null,
+ cap int(5) not null,
+  via varchar(50) not null,
+  civico int(5) not null,
  primary key (ID),
   foreign key (numero) references ordine(numero)
 );
@@ -150,7 +157,7 @@ INSERT INTO categoria VALUES
 
 
 INSERT INTO utente VALUES
-('Michele','Russo','via lambiase','44','84013','RSSNNM00b19A509k','alex@gmail.com',sha1('cavese12'),'Utente');
+('Michele','Russo','via lambiase','Calitri','Avellino','44','84013','RSSNNM00b19A509k','alex@gmail.com',sha1('cavese12'),'Utente');
 INSERT INTO amministratore VALUES
 ('Mario','Rossi','amm1mario@gmail.com',sha1('admin'),'Amministratore');
 
@@ -181,8 +188,6 @@ INSERT INTO prodotto VALUES
 (4,'uva',159638257,33,'uva armonera del Cilento','frutta','uva');
 INSERT INTO prodotto VALUES
 (2,'Lenticchie',159638267,50,'Lenticchie Bio','semi','lenticchie');
-
-
 
 
 

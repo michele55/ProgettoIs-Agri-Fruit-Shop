@@ -12,7 +12,7 @@ public class TestSpedizione {
 	
 	@Test
 	   public void getId() {
-	 spedizione o = new spedizione(1,3,"SDA",8);
+	 spedizione o = new spedizione(1,3,"SDA","Calitri","Via Umberto Saba","Avellino",3,83045,8);
 	
 	    assertEquals(1, o.getId());
 	  }
@@ -25,7 +25,7 @@ o.setId(2);
 	  }
 	@Test
 	   public void getNumOrdine() {
-	 spedizione o = new spedizione(1,3,"SDA",8);
+	 spedizione o = new spedizione(1,3,"SDA","Calitri","Via Umberto Saba","Avellino",3,83045,8);
 	
 	    assertEquals(3, o.getNumeroordine());
 	  }
@@ -40,7 +40,7 @@ o.setNumeroordine(4);
 	
 	@Test
 	   public void getModSpedizione() {
-	 spedizione o = new spedizione(1,3,"SDA",8);
+	 spedizione o = new spedizione(1,3,"SDA","Calitri","Via Umberto Saba","Avellino",3,83045,8);
 	
 	    assertEquals("SDA", o.getModalitaspedizione());
 	  }
@@ -54,7 +54,7 @@ o.setModalitaspedizione("BRT");
 	
 	@Test
 	   public void getCosto() {
-	 spedizione o = new spedizione(1,3,"SDA",8);
+	 spedizione o = new spedizione(1,3,"SDA","Calitri","Via Umberto Saba","Avellino",3,83045,8);
 	
 	    assertEquals(8, o.getCostospedizione());
 	  }

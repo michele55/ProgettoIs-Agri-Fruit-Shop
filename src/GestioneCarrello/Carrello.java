@@ -1,12 +1,18 @@
 package GestioneCarrello;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import GestioneProdotti.prodotto;
 
 public class Carrello<T> {
 	List<T> items;
+
 	float valorecarrello;
 	
+
+
 	public Carrello() {
 		items = new ArrayList<T>();
 		valorecarrello=0;
@@ -28,12 +34,22 @@ public class Carrello<T> {
 		this.valorecarrello = valorecarrello;
 	}
 
-	public void addOggetto(T item) {
+	public int addOggetto(T item) {
+		
 		items.add(item);
+	
+		return items.size()-1;
 	}
 
-	public void deleteOggetto(T item) {
-		items.remove(item);
+	public void deleteOggetto(String item) {
+	
+
+	for(int i=0;i<items.size();i++) {
+		if(items.get(i).toString().contains(item)) {
+			items.remove(i);
+		}
+	}
+	//items.remove(t);
 		/*
 		 * for(T it: items) { 
 		 * 	if(it.equals(item)) { 
@@ -45,7 +61,17 @@ public class Carrello<T> {
 	public List<T> getOggetto() {
 		return items;
 	}
-
+	public int getOggetto(String obj) {
+		int j = 0;
+		for(int i=0;i<items.size();i++) {
+			if(items.get(i).toString().contains(obj)) {
+				j=i;;
+			}
+		}
+		
+		return j;
+		
+	}
 	public void deleteOggetto() {
 		items.clear();
 	}

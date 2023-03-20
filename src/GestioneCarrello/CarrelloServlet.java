@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,6 +42,8 @@ public class CarrelloServlet extends HttpServlet {
 		String nome = request.getParameter("NomeProd");
 		int valoreritorno=0;
 		int count = 0;
+		int k=0;
+		HashMap <String,Integer> hash=new HashMap<>();
 		System.out.print(nome);
 	//	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		Connection db = null;
@@ -54,7 +57,7 @@ public class CarrelloServlet extends HttpServlet {
 		boolean controllo=false;
 		
 		
-		
+		String order=(String)request.getSession().getAttribute("order");
 		
 		
 		String totale= request.getParameter("action");
@@ -73,6 +76,7 @@ public class CarrelloServlet extends HttpServlet {
 		if(nomenegozio!=null) {
 			try {
 				neg=(model2.doRetrieveByKey(nomenegozio));
+				request.getSession().setAttribute("negprofile", neg);
 				
 			}catch (SQLException e) {
 				
@@ -104,7 +108,7 @@ public class CarrelloServlet extends HttpServlet {
 		try {
 			
 			if (action != null) {
-				if(action.equals("totale")) {	
+				if(action.equals("totale") && order==null) {	
 					indirizzo="confermaordine.jsp";
 					float valore=carrello.getValorecarrello();
 					valore=valore+cont+costospedizione;
@@ -174,17 +178,6 @@ public class CarrelloServlet extends HttpServlet {
 				++numeroordine;
 				}
 			
-				 if (action.equals("deleteCart")) {
-					 indirizzo="carrello.jsp";
-						prodotto bean = model.doRetrieveByNome(nome);
-						if (bean != null && !bean.isEmpty()) {
-								carrello.deleteOggetto(bean);
-								
-								request.getSession().setAttribute("carrello", carrello);	
-								request.getSession().setAttribute("deleteCart", "Cart deleted");
-								request.getServletContext().getRequestDispatcher("/"+indirizzo+"").forward(request, response);
-								}	
-				 	}
 										
 				if (action.equals("clearCart")) {
 					carrello.deleteOggetto();
@@ -199,12 +192,14 @@ public class CarrelloServlet extends HttpServlet {
 					indirizzo="prodotti?scelta="+bean.getCategoria()+"";
 					
 					if (bean != null && !bean.isEmpty()) {
-						System.out.println("Qui funziona");
+						
 						if(carrello.getOggetto().isEmpty()) {
 							if(bean.getQuantita()>=(bean.getDispcarrello()+qnt)&& (bean.getQuantita()!=0)) {
 							bean.setDispcarrello(qnt);
-							carrello.addOggetto(bean);
 						
+						 k=	carrello.addOggetto(bean);
+					
+						request.getSession().setAttribute("chiave", k);
 							request.getSession().removeAttribute("quantitaerr");
 							request.getSession().setAttribute("AggiuntaCarrello", "Aggiunta avvenuta correttamente");
 							response.sendRedirect("/AgriShop/AggCarrelloSuccess.jsp");
@@ -218,7 +213,8 @@ public class CarrelloServlet extends HttpServlet {
 									request.getSession().removeAttribute("quantitaerr");
 									bean.setDispcarrello(bean.getQuantita());
 									
-									carrello.addOggetto(bean);
+									k=carrello.addOggetto(bean);
+									request.getSession().setAttribute("chiave", k);
 									request.getSession().setAttribute("AggiuntaCarrello", "Aggiunta avvenuta correttamente");
 									
 									
@@ -280,6 +276,80 @@ public class CarrelloServlet extends HttpServlet {
 						}
 									
 					}}
+
+				 if (action.contains("deleteCart")) {
+					 indirizzo="homepage.jsp";
+			String fin=action.substring(10);
+							
+						
+						carrello.deleteOggetto(fin);
+								request.getSession().setAttribute("carrello", carrello);	
+								request.getSession().setAttribute("deleteCart", "Cart deleted");
+								request.getServletContext().getRequestDispatcher("/"+indirizzo+"").forward(request, response);
+							//	}
+						//else {
+							
+						//}
+				 	}
+				 
+				 if(action.contains("aggiungiQuant")) {
+					 indirizzo="homepage.jsp";
+					 
+					 
+					 String fin2=action.substring(13);
+					 prodotto bean = (prodotto) model.doRetrieveByNome(fin2);
+					 System.out.println("XCazzo: "+fin2);
+					 for(int i=0;i<carrello.getOggetto().size();i++) {
+							if(carrello.getOggetto().get(i).getNome().equals(bean.getNome())){
+								int valore=carrello.getOggetto().get(i).getDispcarrello();
+								int disponibilita=carrello.getOggetto().get(i).getQuantita();
+							
+								if(disponibilita>=(valore+1)) {
+								carrello.getOggetto().get(i).setDispcarrello(valore+1);
+								response.sendRedirect("/AgriShop/carrello.jsp");
+								controllo=true;
+								}
+								else {
+									bean.setDispcarrello(bean.getQuantita());
+						
+									request.getSession().setAttribute("quantitaerr", "erroredisponibilita");
+									response.sendRedirect("/AgriShop/ErroreAggProdotti.jsp");
+								
+									controllo=true;
+								}
+							}}
+					 
+				 }
+				 
+				 
+				 if(action.contains("rimuoviQuant")) {
+					 indirizzo="homepage.jsp";
+					 
+					 
+					 String fin2=action.substring(12);
+					 prodotto bean = (prodotto) model.doRetrieveByNome(fin2);
+					 System.out.println("XCazzo2: "+fin2);
+					 for(int i=0;i<carrello.getOggetto().size();i++) {
+							if(carrello.getOggetto().get(i).getNome().equals(bean.getNome())){
+								int valore=carrello.getOggetto().get(i).getDispcarrello();
+								int disponibilita=carrello.getOggetto().get(i).getQuantita();
+							
+								if(valore==1) {
+									carrello.deleteOggetto(fin2);
+									response.sendRedirect("/AgriShop/carrello.jsp");
+								}
+								else {
+									carrello.getOggetto().get(i).setDispcarrello(valore-1);
+									response.sendRedirect("/AgriShop/carrello.jsp");
+								}
+								
+								
+							
+								
+								
+							}}
+					 
+				 }
 				}  
 					
 			

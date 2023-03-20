@@ -19,9 +19,18 @@ Utente neg=(Utente)request.getSession().getAttribute("neg");
 
 <div id="utente">
 <fieldset>
-<legend>Modifica Dati Personali</legend>
+<legend>Visualizza e Modifica Dati Personali</legend>
 <p>Account di <%=username%></p>
+<ul>
+<li>Email: <%=neg.getEmail() %> </li>
+<li>Nome: <%=neg.getNome() %> </li>
+<li>Cognome: <%=neg.getCognome() %> </li>
+<li>Indirizzo: <%=neg.getIndirizzo() %> </li>
+<li>Cap: <%=neg.getCap() %> </li>
+<li>Civico: <%=neg.getCivico() %> </li>
 
+
+</ul>
 <form class="modprofilo"action="../Modificaprofilo" method="post">
 
 <table>

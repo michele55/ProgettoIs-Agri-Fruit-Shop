@@ -50,6 +50,14 @@ public class totaleordine extends HttpServlet {
 		String totale= request.getParameter("action");
 		String tipospedizione=request.getParameter("spedizione");
 		String nomenegozio=(String) request.getSession().getAttribute("nome");
+		String citta=request.getParameter("citta");
+		
+		System.out.println("Cittaaa: "+citta);
+		String cap=request.getParameter("cap");
+		String civico=request.getParameter("civico");
+		String via=request.getParameter("via");
+		String provincia=request.getParameter("provincia");
+		System.out.println("Prov: "+provincia);
 		
 		OrdineModel modelordine= new OrdineModel(db);
 		PagamentoModel modelpagamento=new PagamentoModel(db);
@@ -114,17 +122,29 @@ public class totaleordine extends HttpServlet {
 					spedizione.setModalitaspedizione("RITIRO");
 					request.getSession().setAttribute("SceltaSpedizioneOk", "La Scelta della spedizione è stata registrata");
 				}
-				
-				try {
+				if((citta!=null & provincia!=null & via!=null & cap!=null & civico !=null) || (spedizione.getModalitaspedizione().equals("RITIRO"))) {
+					if(citta!=null & provincia!=null & via!=null & cap!=null & civico !=null) {
+						spedizione.setCitta(citta);
+						spedizione.setProvincia(provincia);
+						spedizione.setVia(via);
+						spedizione.setCap(Integer.parseInt(cap));
+						spedizione.setCivico(Integer.parseInt(civico));
+					}
 					
-					idspedizione=modelspedizione.doSave(spedizione);
-					request.getSession().setAttribute("SpedizioneInserita", "La spedizione è stata salvata");
 					
+					try {
+						
+						idspedizione=modelspedizione.doSave(spedizione);
+						request.getSession().setAttribute("SpedizioneInserita", "La spedizione è stata salvata");
+						
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
+				
 				
 			//	++idspedizione;
 				request.getSession().setAttribute("numerospediz", idspedizione);
@@ -165,6 +185,7 @@ public class totaleordine extends HttpServlet {
 				try {
 					modelpagamento.doSave(pagamento);
 					modelordine.doUpdate(ordine);
+					request.getSession().setAttribute("order","Order");
 					request.getSession().setAttribute("SalvataggioPagamento", "Il Pagamento è stato salvato correttamente");
 					} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -180,7 +201,11 @@ public class totaleordine extends HttpServlet {
 		}
 		
 	
-		
+		 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello?action=totale");
+		 
+			    dispatcher.forward(request, response);
+			    
+			 
 		response.getWriter().write(risposta.toString());
 		
 	}

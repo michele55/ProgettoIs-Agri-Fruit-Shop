@@ -7,6 +7,8 @@ public class Utente implements Serializable {
 	String nome;
 	String cognome;
 	String indirizzo;
+	String citta;
+	String provincia;
 	String codice_fiscale;
 	String email;
 	String pwd;
@@ -25,12 +27,50 @@ public Utente() {
 
 	
 	
-	public Utente(String nome, String cognome, String indirizzo, String codice_fiscale, String email, String pwd,
+	public String getCitta() {
+	return citta;
+}
+
+
+
+public void setCitta(String citta) {
+	this.citta = citta;
+}
+
+
+
+public String getProvincia() {
+	return provincia;
+}
+
+
+
+public void setProvincia(String provincia) {
+	this.provincia = provincia;
+}
+
+
+
+public int getId() {
+	return id;
+}
+
+
+
+public void setId(int id) {
+	this.id = id;
+}
+
+
+
+	public Utente(String nome, String cognome, String indirizzo,String citta, String provincia, String codice_fiscale, String email, String pwd,
 		String civico, String ruolo, String cap, int id) {
 	super();
 	this.nome = nome;
 	this.cognome = cognome;
 	this.indirizzo = indirizzo;
+	this.citta=citta;
+	this.provincia=provincia;
 	this.codice_fiscale = codice_fiscale;
 	this.email = email;
 	this.pwd = pwd;

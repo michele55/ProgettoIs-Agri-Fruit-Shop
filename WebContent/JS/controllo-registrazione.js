@@ -17,6 +17,7 @@ var uno= x.indexOf("@");
 var due=x.lastIndexOf(".");
 if(due<=1||uno<=1){
 var p=document.getElementById("erroremail");
+p.setAttribute("error","error");
 p.style.color="red";
 p.innerHTML="X";
 mail.focus();
@@ -61,10 +62,11 @@ function validaconferma(conferma){
 	var pas1= conferma.value;
 
 	if(!ck_password.test(pas1)){
-		if(s!=pas1){
+		if(s!=pas1 ||(s==null && pas1!=null)){
 		var p=document.getElementById("erroreconferma");
 	p.style.color="red";
 	p.innerHTML="X";
+	
 conferma.focus();
 	return false;
 }}	
@@ -89,6 +91,7 @@ function validapiva(piva){
 		var p=document.getElementById("errorecodicefiscale");
 	p.style.color="red";
 	p.innerHTML="X";
+	p.innerHTML="errorecodicefiscale";
 	piva.focus();
 	return false;
 }	
@@ -111,6 +114,7 @@ if(!ck.test(indirizzo.value)){
   var p=document.getElementById("erroreindirizzo");
 	p.style.color="red";
 	p.innerHTML="X";
+	p.innerHTML="Formato Via Errato";
 indirizzo.focus();
 	return false;
 }	

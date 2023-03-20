@@ -102,8 +102,9 @@ public class ProductModelDS implements ProductModel<prodotto>{
 				bean.setPrezzo(rs.getInt("prezzo"));
 				bean.setNome(rs.getString("nomep"));
 				bean.setDescrizione(rs.getString("descrizione"));
-				bean.setQuantita(rs.getInt("disponibilità"));
+				
 				bean.setSsn(rs.getString("ssn"));
+				bean.setQuantita(rs.getInt("disponibilità"));
 				bean.setCtegoria(rs.getString("categ"));
 				bean.setIdfoto(rs.getString("idfoto"));
 			
@@ -204,7 +205,7 @@ public class ProductModelDS implements ProductModel<prodotto>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String insertSQL = "INSERT INTO prodotto" + " (prezzo, nomep, SSN, disponibilità, descrizione, categ, idfoto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL = "INSERT INTO prodotto" + " (prezzo, nomep, SSN,disponibilità, descrizione, categ, idfoto) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			connection=ds;

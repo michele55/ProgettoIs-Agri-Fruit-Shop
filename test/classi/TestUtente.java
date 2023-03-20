@@ -6,7 +6,7 @@ import gestioneAccount.Utente;
 public class TestUtente {
 	@Test
 	   public void getNome() {
-	   Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	   Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	
 	    assertEquals("Mario", u.getNome());
 	  }
@@ -20,7 +20,7 @@ public class TestUtente {
 	
 	@Test
 	   public void getCognome() {
-	   Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	   Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	  
 	    assertEquals("Rossi", u.getCognome());
 	  }
@@ -33,7 +33,7 @@ public class TestUtente {
 	  }
 	@Test
 	   public void getIndirizzo() {
-	   Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	   Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	
 	    assertEquals("Via Roma", u.getIndirizzo());
 	  }
@@ -46,8 +46,7 @@ public class TestUtente {
 	  }
 	@Test
 	  public void getCivico() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
-	   
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	    assertEquals("3", u.getCivico());
 	  }
 	@Test
@@ -58,7 +57,7 @@ public class TestUtente {
 	  }
 	@Test
 	  public void getCap() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	   
 	    assertEquals("83045", u.getCap());
 	  }
@@ -70,7 +69,7 @@ public class TestUtente {
 	  }
 	@Test
 	  public void getCodiceFiscale() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	   
 	    assertEquals("RSSNNM00B19a509K", u.getCodice_fiscale());
 	  }
@@ -82,7 +81,7 @@ public class TestUtente {
 	  }
 	@Test
 	  public void getEmail() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	   
 	    assertEquals("mariorossi@gmail.com", u.getEmail());
 	  }
@@ -95,7 +94,7 @@ public class TestUtente {
 	
 	@Test
 	  public void getRuolo() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	   
 	    assertEquals("Utente", u.getRuolo());
 	  }
@@ -107,7 +106,7 @@ public class TestUtente {
 	  }
 	@Test
 	  public void getPwd() {
-	    Utente u = new Utente("Mario","Rossi","Via Roma","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
 	   
 	    assertEquals("MRossi90", u.getPwd());
 	  }
@@ -116,5 +115,35 @@ public class TestUtente {
 	    Utente u = new Utente();
 	 u.setPwd("Rossi90");
 	    assertEquals("Rossi90", u.getPwd());
+	  }
+	
+	@Test
+	  public void setProvincia() {
+	    Utente u = new Utente();
+	 u.setProvincia("Avellino");
+	    assertEquals("Avellino", u.getProvincia());
+	    
+	  }
+	@Test
+	  public void getProvincia() {
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	   
+	    assertEquals("Avellino", u.getProvincia());
+	  }
+	
+	@Test
+	  public void getCitta() {
+	    Utente u = new Utente("Mario","Rossi","Via Roma","Calitri","Avellino","RSSNNM00B19a509K","mariorossi@gmail.com","MRossi90","3","Utente","83045",1);
+	   
+	    assertEquals("Calitri", u.getCitta());
+	  }
+	
+
+	@Test
+	  public void setCitta() {
+	    Utente u = new Utente();
+	 u.setCitta("Calitri");
+	    assertEquals("Calitri", u.getCitta());
+	    
 	  }
 }

@@ -61,7 +61,7 @@ assertEquals(50, o.getValorecarrello(), 0);
 	o.addOggetto(prod);
 	    assertNotNull(o.getOggetto().get(0));
 	    
-	    o.deleteOggetto(prod);
+	    o.deleteOggetto(prod.getNome());
 	assertEquals("", o.getOggetto());
 	  }
 	

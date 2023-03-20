@@ -126,5 +126,6 @@
 	<classpathentry kind="lib" path="D:/Downloads/slf4j-api-2.0.1.jar"/>
 	<classpathentry kind="lib" path="D:/Downloads/slf4j-api-2.0.1-tests.jar"/>
 	<classpathentry kind="lib" path="D:/Downloads/slf4j-jdk14-2.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Michele/Desktop/lift-3.4.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

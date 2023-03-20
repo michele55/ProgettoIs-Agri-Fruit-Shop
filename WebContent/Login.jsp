@@ -47,8 +47,9 @@ String errorelogin=(String)request.getAttribute("passerrore");
 	
 <%if(erroreaccount!=null&&erroreaccount.equals("errorelogin")|| (errorelogin!=null&&errorelogin.equals("errorelogin")) ){ %>	
 	<div id="errorelogin">
-	
+	<h2>Errore Login, email o password errati</h2>
 	<a><img src="immagini/error.png" width="200" height="200"></a>
+	
 	</div>
 <%}%>
 

@@ -54,6 +54,9 @@ public class LoginModelDS implements utenteModel<Utente>{
 			bean.setNome(rs.getString("nome"));
 			bean.setCognome(rs.getString("cognome"));
 			bean.setIndirizzo(rs.getString("indirizzo"));
+			bean.setCitta(rs.getString("citta"));
+			bean.setProvincia(rs.getString("provincia"));
+			
 			bean.setCodice_fiscale(rs.getString("codice_fiscale"));
 			bean.setPwd(rs.getString("pwd"));
 			bean.setEmail(rs.getString("email"));
@@ -110,6 +113,8 @@ public class LoginModelDS implements utenteModel<Utente>{
 			bean.setNome(rs.getString("nome"));
 			bean.setCognome(rs.getString("cognome"));
 			bean.setIndirizzo(rs.getString("indirizzo"));
+			bean.setCitta(rs.getString("citta"));
+			bean.setProvincia(rs.getString("provincia"));
 			bean.setCodice_fiscale(rs.getString("codice_fiscale"));
 			bean.setRuolo(rs.getString("ruolo"));
 			bean.setPwd(rs.getString("pwd"));
@@ -148,7 +153,7 @@ public class LoginModelDS implements utenteModel<Utente>{
 	//	Connection connection = null;
 		PreparedStatement preparedStatement = null;
 	
-		String insertSQL = "INSERT INTO utente " + " (nome,cognome, indirizzo, ncivico, cap, codice_fiscale, email,pwd,ruolo) VALUES (?, ?, ?, ?, ?, ?, ?,sha1(?),?)";
+		String insertSQL = "INSERT INTO utente " + "  VALUES (?,?,?,?,?,?, ?, ?, ?,sha1(?),?)";
 
 		try {
 			
@@ -159,12 +164,14 @@ public class LoginModelDS implements utenteModel<Utente>{
 			preparedStatement.setString(1,item.getNome());
 			preparedStatement.setString(2,item.getCognome());
 			preparedStatement.setString(3,item.getIndirizzo());
-			preparedStatement.setString(4,item.getCivico());
-			preparedStatement.setString(5,item.getCap());
-			preparedStatement.setString(6,item.getCodice_fiscale());
-			preparedStatement.setString(7,item.getEmail());
-			preparedStatement.setString(8,item.getPwd());
-			preparedStatement.setString(9,"Utente");
+			preparedStatement.setString(4,item.getCitta());
+			preparedStatement.setString(5,item.getProvincia());
+			preparedStatement.setString(6,item.getCivico());
+			preparedStatement.setString(7,item.getCap());
+			preparedStatement.setString(8,item.getCodice_fiscale());
+			preparedStatement.setString(9,item.getEmail());
+			preparedStatement.setString(10,item.getPwd());
+			preparedStatement.setString(11,"Utente");
 			
 			utility.print("doSave: " + preparedStatement.toString());
 			preparedStatement.executeUpdate();
@@ -174,7 +181,7 @@ public class LoginModelDS implements utenteModel<Utente>{
 		}
 		catch(SQLException e){
 			e.printStackTrace();
-			
+			return false;
 		}
 		
 		
@@ -200,7 +207,7 @@ public class LoginModelDS implements utenteModel<Utente>{
 		Connection 	connection=null;
 		PreparedStatement preparedStatement=null;
 		
-		String SQL="UPDATE utente SET "+"  indirizzo= ? , ncivico=?, cap=? , codice_fiscale= ?, pwd=sha1(?) WHERE email=?";
+		String SQL="UPDATE utente SET "+"  indirizzo= ? ,citta=?, provincia=?, ncivico=?, cap=? , codice_fiscale= ?, pwd=sha1(?) WHERE email=?";
 		try {
 			connection =  ds;
 			connection.setAutoCommit(false);
@@ -209,12 +216,14 @@ public class LoginModelDS implements utenteModel<Utente>{
 		//	preparedStatement.setString(1, item.getNome());
 		//	preparedStatement.setString(2, item.getCognome());
 			preparedStatement.setString(1, item.getIndirizzo());
-			preparedStatement.setString(2, item.getCivico());
-			preparedStatement.setString(3, item.getCap());
-			preparedStatement.setString(4, item.getCodice_fiscale());
-			preparedStatement.setString(5, item.getPwd());
-			preparedStatement.setString(6, item.getEmail());
-if( item.getIndirizzo()==null || item.getCivico()==null||
+			preparedStatement.setString(2, item.getCitta());
+			preparedStatement.setString(3, item.getProvincia());
+			preparedStatement.setString(4, item.getCivico());
+			preparedStatement.setString(5, item.getCap());
+			preparedStatement.setString(6, item.getCodice_fiscale());
+			preparedStatement.setString(7, item.getPwd());
+			preparedStatement.setString(8, item.getEmail());
+if( item.getIndirizzo()==null || item.getCitta()==null || item.getProvincia()==null|| item.getCivico()==null||
 item.getCap()==null || item.getCodice_fiscale()==null || item.getPwd()==null ||item.getEmail()==null) {
 	return false;
 }
