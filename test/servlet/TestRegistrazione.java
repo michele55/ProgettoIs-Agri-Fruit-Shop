@@ -61,6 +61,8 @@ public class TestRegistrazione extends Mockito {
         request.setParameter("cognome", "Rossi");
         request.setParameter("codice_fiscale", "rssnnm00b19a079k");
         request.setParameter("indirizzo", "Via dei palazzi");
+        request.setParameter("citta", "Calitri");
+        request.setParameter("provincia", "Avellino");
         request.setParameter("cap", "83045");
         request.setParameter("civico", "3");
    
@@ -81,6 +83,8 @@ public class TestRegistrazione extends Mockito {
          request.setParameter("cognome", "Rossi");
          request.setParameter("codice_fiscale", "rssnnm00b19a079k");
          request.setParameter("indirizzo", "Via dei palazzi");
+         request.setParameter("citta", "Calitri");
+         request.setParameter("provincia", "Avellino");
          request.setParameter("cap", "83045");
          request.setParameter("civico", "3");
         servlet.doPost(request, response);

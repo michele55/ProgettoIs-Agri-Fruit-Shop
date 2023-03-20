@@ -10,6 +10,9 @@
 <%
 String erroreaccount=(String)request.getAttribute("erroreaccount");
 String errorelogin=(String)request.getAttribute("passerrore");
+String login=(String)request.getAttribute("login");
+String nulli=(String)request.getAttribute("Campi nulli");
+
 %>
 
 </head>
@@ -52,7 +55,15 @@ String errorelogin=(String)request.getAttribute("passerrore");
 	
 	</div>
 <%}%>
+<%if(nulli!=null&& nulli!=""  ){ %>	
 
+	<h2>Campi nulli </h2>
+	
+	<%nulli=""; %>
+
+	
+	
+<%}%>
 
 
 
