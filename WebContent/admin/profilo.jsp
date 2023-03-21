@@ -11,7 +11,22 @@
 </head>
 <body>
 <%@ include file="Header2.jsp"%>
+<%
 
+String error1=(String)request.getSession().getAttribute("errNome");
+String error2=(String)request.getSession().getAttribute("errDisp");
+String error3=(String)request.getSession().getAttribute("errPrezzo");
+String error4=(String)request.getSession().getAttribute("errSSN");
+String error5=(String)request.getSession().getAttribute("errDescr");
+String error6=(String)request.getSession().getAttribute("errCateg");
+String error7=(String)request.getSession().getAttribute("errIdFoto");
+String in=(String)request.getSession().getAttribute("prodIn");
+String err=(String)request.getSession().getAttribute("error");
+
+
+
+
+%>
 <div class="utente-container">
 <fieldset>
 <legend>Pagina di amministratore</legend>
@@ -28,24 +43,54 @@
 
 
 <tr>
-<td><input type="text" name="nome" placeholder="Nome" required></td>
+<td><input type="text" name="nome" placeholder="Nome" required>
+
+<%if(error1!=null && error1!=""){ %>
+<p>Errore Formato nome </p>
+<%error1=""; %>
+<%} %>
+
+</td>
 </tr>
 
 <tr>
-<td><input type="text" name="prezzo" placeholder="Prezzo" required></td>
+<td><input type="text" name="prezzo" placeholder="Prezzo" required>
+<%if(error3!=null && error3!=""){ %>
+<p>Errore Formato Prezzo</p>
+<%error3=""; %>
+<%} %>
+</td>
 </tr>
 
 <tr>
 
-<td><input type="text" name="Ssn" placeholder="Ssn" required></td>
+<td><input type="text" name="Ssn" placeholder="Ssn" required>
+<%if(error4!=null && error4!=""){ %>
+<p>Errore Formato SSN </p>
+<%error4=""; %>
+<%} %>
+</td>
 </tr>
 <tr>
 
-<td><input type="text" name="disponibilita" placeholder="disponibilità" required></td>
+<td><input type="text" name="disponibilita" placeholder="disponibilità" required>
+<%if(error2!=null && error2!=""){ %>
+<p>Errore Formato Disponibilità </p>
+<%error2=""; %>
+<%} %>
+</td>
 </tr>
 
 <tr>
-<td><input type="text" name="descrizione" placeholder="Descrizione" required></td>
+<td><input type="text" name="descrizione" placeholder="Descrizione" required>
+
+<%if(error5!=null && error5!=""){ %>
+<p>Errore Formato Descrizione </p>
+<%error5=""; %>
+<%} %>
+
+
+</td>
 </tr>
 
 <tr>
@@ -65,7 +110,22 @@
 </tr>
 
 <tr>
-<td><input type="text" name="idfoto" placeholder="nomefoto" required></td>
+<td><input type="text" name="idfoto" placeholder="nomefoto" required>
+<%if(error7!=null && error7!=""){ %>
+<p>Errore Formato IdFoto </p>
+<%error7=""; %>
+<%} %>
+
+<%if(in!=null && in!=""){ %>
+<p>Prodotto Inserito </p>
+<%in=""; %>
+<%} %>
+
+<%if(err!=null && err!=""){ %>
+<p><%System.out.println(err);%></p>
+<%err=""; %>
+<%} %>
+</td>
 </tr>
 
 <tr>

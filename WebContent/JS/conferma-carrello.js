@@ -15,13 +15,14 @@ function pagamento(src) {
 		{
 		document.getElementById("dati_pagamento").style.display="none";
 		document.getElementById("conferma_paypal").style.display="none";
-		
+		window.location.href = "totaleordine?pagamento=contanti";
 		}
 		
 	if(src.value=="paypal")
 		{
 		document.getElementById("conferma_paypal").style.display="inline"; 
 		document.getElementById("dati_pagamento").style.display="none";
+		window.location.href = "totaleordine?pagamento=paypal";
 
 		
 		
@@ -128,13 +129,19 @@ function pagamento(src) {
 	function calcolo(){
 		
 		document.getElementById("totale__carrello").style.display="inline";
-		
+	var numcarta=	document.getElementById("numerocarta").value;
+	var titolare=	document.getElementById(" titolare").value;
+	var scadenza=	document.getElementById("scadenza").value;
+	var cvv=	document.getElementById("cvv").value;
+	
 		 var xhr = new XMLHttpRequest();
    		 xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
 		           
 	document.getElementById("totale__carrello").innerHTML=xhr.responseText;
 	document.getElementById("loading").style.display="inline";
+	var attributeValue = '<%= request.getAttribute("order") %>';
+		
 	window.setTimeout("redirect()", 3000);
 	
 
@@ -154,6 +161,9 @@ function pagamento(src) {
 	function disabilita() {
 	document.getElementById("buttonconferma").disabled=true;
 		document.getElementById("conferma_ordine").disabled=true;
+		
+		
+		
 }
 function disabilitaoff() {
 	document.getElementById("buttonconferma").disabled=false;
@@ -198,7 +208,7 @@ function disabilitaoff() {
 	function bloccaForm() {
   // seleziona il form
 document.getElementsByClassName("form").disabled=true;
-document.getElementById("dati_spedizione1").disabled=true;
+document.getElementById("dati_spedizione1").style.display="none";
 document.getElementById('citta').disabled=true;
 document.getElementById('citta').setAttribute('disabled','disabled');
 document.getElementById("modalita_spedizione").disabled=true;

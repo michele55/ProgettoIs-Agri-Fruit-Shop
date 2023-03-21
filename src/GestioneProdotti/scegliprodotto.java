@@ -32,6 +32,14 @@ public class scegliprodotto extends HttpServlet {
 		response.setContentType("text/html");
 		String categoria=request.getParameter("categoria");
 		String nomeprodotto=request.getParameter("nomeprodotto");
+		String error1m=(String)request.getSession().getAttribute("errNomeMod");
+		String error2m=(String)request.getSession().getAttribute("errDispMod");
+		String error3m=(String)request.getSession().getAttribute("errPrezzoMod");
+		String error4m=(String)request.getSession().getAttribute("errSSNMod");
+		String error5m=(String)request.getSession().getAttribute("errDescrMod");
+	//	String error6m=(String)request.getSession().getAttribute("errCategMod");
+		String error7m=(String)request.getSession().getAttribute("errIdFotoMod");
+		request.getSession().setAttribute("mod", "mod");
 		//DataSource ds= (DataSource) getServletContext().getAttribute("DataSource");
 		Connection db = null;
 		try {
@@ -82,7 +90,7 @@ public class scegliprodotto extends HttpServlet {
 	
 	
 
-	
+
 	if(nomeprodotto!=null) {
 			System.out.print(nomeprodotto);
 			try {		
@@ -90,11 +98,36 @@ public class scegliprodotto extends HttpServlet {
 				prod=model.doRetrieveByNome(nomeprodotto);
 				if(!prod.isEmpty()) {
 					rispostaprodotto.append("<input type=text name=nome placeholder="+prod.getNome()+">");
+					if(error1m!=null && error1m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica nome </p>");
+						error1m=""; 
+						} 
+							
 					rispostaprodotto.append("<input type=text name=Ssn placeholder="+prod.getSsn()+">");
+					if(error4m!=null && error4m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica SSN </p>");
+						error4m=""; 
+						} 
 					rispostaprodotto.append("<input type=text name=disponibilita placeholder="+prod.getQuantita()+">");
+					if(error2m!=null && error2m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica Disponibilità </p>");
+						error2m=""; 
+						} 
 					rispostaprodotto.append("<input type=text name=prezzo placeholder="+prod.getPrezzo()+">");
+					if(error3m!=null && error3m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica Prezzo </p>");
+						error3m=""; 
+						} 
 					rispostaprodotto.append("<input type=text name=descrizione placeholder="+prod.getDescrizione()+">");
+					if(error5m!=null && error5m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica Descrizione </p>");
+						error5m=""; 
+						} 
 					rispostaprodotto.append("<input type=text name=idfoto placeholder="+prod.getIdfoto()+">");
+					if(error7m!=null && error7m!=""){ 
+						rispostaprodotto.append("<p>Errore Formato Modifica IdFoto</p>");
+						error7m=""; 
+						} 
 					rispostaprodotto.append("<input type= submit value=conferma>");
 					request.getSession().setAttribute("risultatoNomeProdotto","Nome prodotto Ok");
 				}

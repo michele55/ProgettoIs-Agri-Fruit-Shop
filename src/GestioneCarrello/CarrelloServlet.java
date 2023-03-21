@@ -62,6 +62,7 @@ public class CarrelloServlet extends HttpServlet {
 		
 		String totale= request.getParameter("action");
 		String nomenegozio=(String) request.getSession().getAttribute("emailutente");
+		String redirect=(String) request.getSession().getAttribute("redirect");
 		OrdineModel modelordine= new OrdineModel(db);
 		compostoModel modelcomposto=new compostoModel(db);
 		LoginModelDS model2= new LoginModelDS(db);
@@ -108,7 +109,7 @@ public class CarrelloServlet extends HttpServlet {
 		try {
 			
 			if (action != null) {
-				if(action.equals("totale") && order==null) {	
+				if(action.equals("totale") && order==null && redirect==null) {	
 					indirizzo="confermaordine.jsp";
 					float valore=carrello.getValorecarrello();
 					valore=valore+cont+costospedizione;
@@ -177,13 +178,35 @@ public class CarrelloServlet extends HttpServlet {
 				}
 				++numeroordine;
 				}
+			if(action.equals("totale") && order==null &&(redirect!=null)) {
+				indirizzo="confermaordine.jsp";
+			
+				request.getServletContext().getRequestDispatcher("/"+indirizzo+"").forward(request, response);
+			}
 			
 										
 				if (action.equals("clearCart")) {
 					carrello.deleteOggetto();
 					indirizzo="homepage.jsp";
 				//	request.getSession().setAttribute("stato", "true");
+				
+					
 					request.getServletContext().getRequestDispatcher("/"+indirizzo+"").forward(request, response);
+					  
+					 
+					  // response.sendRedirect("/AgriShop/"+indirizzo);
+				}
+				
+				if(action.equals("clearCart2")) {
+					carrello.deleteOggetto();
+					indirizzo="homepage.jsp";
+					PrintWriter out=response.getWriter();
+					response.setContentType("text/html");
+					out.println("<script type=\"text/javascript\">");
+					   out.println("alert('Ordine Confermato');");
+					 
+					   out.println("</script>");
+					   request.getServletContext().getRequestDispatcher("/"+indirizzo+"").include(request, response);
 				}
 							
 				if (action.equals("aggiungi")) {	

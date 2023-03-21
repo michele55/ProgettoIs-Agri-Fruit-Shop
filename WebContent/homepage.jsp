@@ -14,11 +14,13 @@
 <%
 Collection<?> prodotti=(Collection<?>)request.getAttribute("prodotti");
 String controlloutente=(String)request.getSession().getAttribute("nome");
+
 if(controlloutente==null){}
 String errore= (String)request.getAttribute("error");
 if(prodotti==null&&errore==null){
 	response.sendRedirect(response.encodeRedirectURL("./offerta"));
 }
+
 
 %>
 
@@ -26,6 +28,8 @@ if(prodotti==null&&errore==null){
 
 <body>
 <%@ include file="Header.jsp"%>
+
+
 
 <div class="center">
 

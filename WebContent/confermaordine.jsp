@@ -241,19 +241,21 @@ List<prodotto> prodcarrello=carrello.getOggetto(); %>
 </div>
 
 <label class="container"><img src="immagini/mastercard.png">
-  <input type="radio" name="radio" value="mastercard" onchange="pagamento(this), costo(this);" required>
+  <input type="radio" name="radio" value="mastercard" onchange="pagamento(this)" required>
   <span class="checkmark"></span>
 </label>
 
 <div id="dati_pagamento">
 
+<form action="totaleordine" >
 
-
-<input type="text" name="numerocarta"placeholder="Numero Carta" onblur="validanumero(this)" required>
-<input type="text" name="titolare" placeholder="Titolare Carta" onblur="validanome(this)" required>
-<input type="date" name="scadenza" placeholder="Scadenza" onblur="validascadenza(this)"required>
-<input type="text" name="cvv" placeholder="CVV" onblur="validacvv(this)" required>
-
+<input type="text" id=" numerocarta"name="numerocarta"placeholder="Numero Carta" onblur="validanumero(this)" required>
+<input type="text"  id=" titolare" name="titolare" placeholder="Titolare Carta" onblur="validanome(this)" required>
+<input type="date" id=" scadenza" name="scadenza" placeholder="Scadenza" onblur="validascadenza(this)"required>
+<input type="text" id="cvv" name="cvv" placeholder="CVV" onblur="validacvv(this)" required>
+<input type="hidden" id="pagamento" value="mastercard" name="pagamento">
+<button type = "submit" id="submit" value = "Submit" onsubmit="calcolo()" onclick="calcolo()">Conferma</button>
+</form>
 
 
 </div>
@@ -267,7 +269,7 @@ List<prodotto> prodcarrello=carrello.getOggetto(); %>
 
 </div>
 
- <button disabled id="buttonconferma" onclick="calcolo(),disabilita()">CONFERMA  </button> 
+ <button style="display:none" disabled id="buttonconferma" onclick="calcolo(),disabilita()">CONFERMA  </button> 
 
 
 <div id="foother">

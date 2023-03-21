@@ -44,13 +44,13 @@ String amm=(String)request.getSession().getAttribute("amm");
 	
 
 <div id="carrello">
-<a href="carrello.jsp"><img src="immagini/carrello.png"></a>
+<a href="carrello.jsp"><img src="../immagini/carrello.png"></a>
 
 </div>
 
 <ul class="header__menu">
-<li class="header__menu__item"><a href="../homepage.jsp">Home</a></li>
-<li class="header__menu__item"><a href="../prodotti.jsp">Prodotti</a></li>
+<li class="header__menu__item"><a href="AgriShop/homepage.jsp">Home</a></li>
+<li class="header__menu__item"><a href="AgriShop/prodotti.jsp">Prodotti</a></li>
 
 <%if(username==null) {%>
 <li class="header__menu__item"><a href="Login.jsp">Accedi</a></li>
