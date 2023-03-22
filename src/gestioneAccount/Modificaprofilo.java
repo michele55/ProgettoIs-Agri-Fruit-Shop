@@ -51,21 +51,95 @@ public class Modificaprofilo extends HttpServlet {
 			String password=request.getParameter("password");
 			String conferma=request.getParameter("conferma");
 			String indirizzo= request.getParameter("indirizzo");
+			String citta= request.getParameter("citta");
+			String provincia= request.getParameter("provincia");
 			String codice_fiscale=request.getParameter("codice_fiscale");
 			String cap=request.getParameter("cap");
 			String civico=request.getParameter("ncivico");
 			int count=0;
-			if(cap!=null) {			
-				if(!cap.equals("")) {
+			int countcap=0;
+			int countcivico=0;
+			int countindirizzo=0;
+			int countcitta=0;
+			int countprovincia=0;
+			if(cap!=null) {	
+				for(int i=0;i<cap.length();i++) {
+					
+					if(Character.isLetter(cap.charAt(i))) {
+						countcap++;
+					}
+			}
+				if(countcap==0) {
 					neg.setCap(cap);
-					count++;
-				}}
+				}
+				else {
+					request.getSession().setAttribute("errCap", "Errore");	
+				}
+				
+			}
+				
+				
+				
+				
+				
+			
+				
+				
+			
 			
 				if(civico!=null) {			
-					if(!civico.equals("")) {
+					
+					for(int i=0;i<civico.length();i++) {
+						
+						if(Character.isLetter(civico.charAt(i))) {
+							countcivico++;
+						}
+				}
+					if(countcap==0) {
 						neg.setCivico(civico);
-						count++;
-					}}
+					}
+					else {
+						request.getSession().setAttribute("errCivico", "Errore");	
+					}	
+						
+					}
+				
+				if(citta!=null) {
+	for(int i=0;i<citta.length();i++) {
+						
+						if(Character.isDigit(citta.charAt(i))) {
+							countcitta++;
+						}
+				}
+					if(countcitta==0) {
+					neg.setCitta(citta);
+					}
+					else {
+						request.getSession().setAttribute("errCitta", "Errore");	
+					}	
+						
+					
+				}
+				
+				
+				
+				
+				if(provincia!=null) {
+					for(int i=0;i<provincia.length();i++) {
+										
+										if(Character.isDigit(provincia.charAt(i))) {
+											countprovincia++;
+										}
+								}
+									if(countprovincia==0) {
+									neg.setProvincia(provincia);
+									}
+									else {
+										request.getSession().setAttribute("errProvincia", "Errore");	
+									}	
+										
+									
+								}
 			
 		/*	if(user!=null) {			
 			if(!user.equals("")) {
@@ -74,18 +148,28 @@ public class Modificaprofilo extends HttpServlet {
 			}
 			}*/
 			if(indirizzo!=null) {
-			if(!indirizzo.equals("")){
-				neg.setIndirizzo(indirizzo);;
-				count++;
-			}}
+				for(int i=0;i<indirizzo.length();i++) {
+					
+					if(Character.isDigit(indirizzo.charAt(i))) {
+						countindirizzo++;
+					}
+			}
+				if(countindirizzo==0) {
+					neg.setIndirizzo(indirizzo);
+				}
+				else {
+					request.getSession().setAttribute("errIndirizzo", "Errore");	
+				}
 			
-			if(codice_fiscale!=null) {
+			}
+			
+			if(codice_fiscale!=null&& codice_fiscale.length()==16) {
 			if(!codice_fiscale.equals("")) {
 				neg.setCodice_fiscale(codice_fiscale);
 				count++;
 			}}
 			
-			if(!password.equals("")&&password.equals(conferma)) {
+			if(!password.equals("")&&password.equals(conferma)&& password.length()==8 && password!=null) {
 				neg.setPwd(password);
 				count++;
 			}
@@ -98,6 +182,13 @@ public class Modificaprofilo extends HttpServlet {
 				System.out.println(tt);
 			}
 		
+			
+			
+			if( (citta!=null && citta!="") && (provincia!=null && provincia!="") && (codice_fiscale!=null && codice_fiscale!="") && (civico!=null && civico !="") 
+					&& (cap!=null && cap!="") && (password!=null && password!="") && (indirizzo!=null && indirizzo!="")) {
+				
+			
+			
 			try {
 				 model.doUpdate(neg);
 				
@@ -107,6 +198,9 @@ public class Modificaprofilo extends HttpServlet {
 				request.setAttribute("error", e.getMessage());
 			}
 			
+			
+			
+			}	
 			if(request.getSession() !=null) {
 				request.getSession().invalidate();
 			}
@@ -140,11 +234,25 @@ public class Modificaprofilo extends HttpServlet {
 			String cap=request.getParameter("cap");
 			String civico=request.getParameter("ncivico");
 			int count=0;
+			int countcap=0;
+			int countcivico=0;
+			int countindirizzo=0;
+			int countcitta=0;
+			int countprovincia=0;
 			if(cap!=null) {			
-				if(!cap.equals("")) {
+for(int i=0;i<cap.length();i++) {
+					
+					if(Character.isLetter(cap.charAt(i))) {
+						countcap++;
+					}
+			}
+				if(countcap==0) {
 					neg.setCap(cap);
-					count++;
-				}}
+				}
+				else {
+					request.getSession().setAttribute("errCap", "Errore");	
+				}
+				}
 			
 				if(civico!=null) {			
 					if(!civico.equals("")) {

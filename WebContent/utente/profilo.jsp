@@ -11,11 +11,24 @@
 <%
 
 Utente neg=(Utente)request.getSession().getAttribute("neg");
+
 %>
 
 </head>
 <body>
  <%@ include file="Header2.jsp"%><br>
+ 
+ <%
+ String error1=(String)request.getSession().getAttribute("errCap");
+ 
+ 
+ 
+ 
+ 
+ %>
+ 
+ 
+ 
 
 <div id="utente">
 <fieldset>
@@ -35,24 +48,33 @@ Utente neg=(Utente)request.getSession().getAttribute("neg");
 
 <table>
 <tr>
-<td><input id="rsociale" type="text" name="user " placeholder="<%=username%>"  readonly="readonly" onblur="uppercase(this)"></td><td><p id=erroreragione></td>
-</tr>
 
-<tr>
-<td><input id="email" type="text" name="email" placeholder="<%=neg.getEmail()%>" readonly="readonly" ></td>
-</tr>
-<tr>
+<td><input id="cap" type="text" name="cap" placeholder="<%=neg.getCap()%>" onblur="validacap(this)"></td><td><p id=errorecap>
+<%if(error1!=null && error1!=""){ %>
+<p>Errore Formato cap </p>
+<%error1=""; %>
+<%} %>
 
-<td><input id="cap" type="text" name="cap" placeholder="<%=neg.getCap()%>" onblur="validacap(this)"></td><td><p id=errorecap></td>
+
+</td>
 </tr>
 <tr>
 
 <td><input id="ncivico" type="text" name="ncivico" placeholder="<%=neg.getCivico()%>" onblur="validacivico(this)"></td><td><p id=errorecivico></td>
 </tr>
 <tr>
-
 <td><input id="indirizzo" type="text" name="indirizzo" placeholder="<%=neg.getIndirizzo()%>" onblur="validaindirizzo(this)"></td><td><p id=erroreindirizzo></td>
 </tr>
+
+<tr>
+<td><input id="citta" type="text" name="citta" placeholder="<%=neg.getCitta()%>" onblur="validacitta(this)"></td><td><p id=errorecitta></td>
+</tr>
+
+
+<tr>
+<td><input id="provincia" type="text" name="provincia" placeholder="<%=neg.getProvincia()%>" onblur="validaprovincia(this)"></td><td><p id=erroreprovincia></td>
+</tr>
+
 <tr>
 <td><input id="codice_fiscale" type="text" name="codice_fiscale" placeholder="<%=neg.getCodice_fiscale()%>" onblur="validapiva(this)"></td><td><p id=errorepiva></td>
 </tr>

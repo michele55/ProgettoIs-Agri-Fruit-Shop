@@ -86,7 +86,7 @@ String amm=(String)request.getSession().getAttribute("amm");
 <a href="ordini.jsp">Ordini</a>
 <a href="utente/profilo.jsp">Modifica</a>
 <a href="carrello.jsp">Carrello</a>
-<a href="../logout">Logout</a>
+<a href="/AgriShop/logout">Logout</a>
 
 </div>
 

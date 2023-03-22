@@ -73,7 +73,7 @@ String amm=(String)request.getSession().getAttribute("amm");
 <div class="header__menu__sotto">
 <a href="admin/profilo.jsp">Pannello-Controllo</a>
 
-<a href="../logout">Logout</a>
+<a href="/AgriShop/logout">Logout</a>
 
 </div>
 </div>

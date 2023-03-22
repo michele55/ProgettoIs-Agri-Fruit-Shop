@@ -129,6 +129,62 @@ indirizzo.focus();
 
 }
 
+function validaprovincia(provincia){
+var ck=/^[a-zA-Z\s]{5,40}$/;
+
+
+if(!ck.test(provincia.value)){
+
+
+  var p=document.getElementById("erroreprovincia");
+	p.style.color="red";
+	p.innerHTML="X";
+	p.innerHTML="Formato Provincia Errato";
+indirizzo.focus();
+	return false;
+}	
+	else 
+{
+	var q=document.getElementById("erroreprovincia");
+	q.style.color="green";
+    q.innerHTML="V";
+
+		return true;
+		}
+
+}
+
+function validacitta(citta){
+var ck=/^[a-zA-Z\s]{4,40}$/;
+
+
+if(!ck.test(citta.value)){
+
+
+  var p=document.getElementById("errorecitta");
+	p.style.color="red";
+	p.innerHTML="X";
+	p.innerHTML="Formato Citta Errato";
+indirizzo.focus();
+	return false;
+}	
+	else 
+{
+	var q=document.getElementById("errorecitta");
+	q.style.color="green";
+    q.innerHTML="V";
+
+		return true;
+		}
+
+}
+
+
+
+
+
+
+
 
 function validacivico(civico){
 
